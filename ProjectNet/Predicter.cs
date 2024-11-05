@@ -2,7 +2,7 @@
 {
     public class Predicter
     {
-        public void setup()
+        public void Setup()
         {
             //Load sample data
             var sampleData = new InputDeterminer.ModelInput()

@@ -1,8 +1,8 @@
 ﻿namespace ProjectNet
 {
-    public class intro
+    public class Intro
     {
-        public static void playIntro()
+        public static void PlayIntro()
         {
             //SETUP
             Console.WriteLine();
@@ -10,63 +10,63 @@
             Console.CursorVisible = false;
 
             //FIRST PARAGRAPH
-            TextFunctions.slowPrint("Baron ");
-            TextFunctions.slowPrint(Environment.UserName + "...", "green");
-            TextFunctions.slowPrint(" im afraid it has come to this, you are hereby found ");
-            TextFunctions.slowPrint("Guilty, ", "red");
-            TextFunctions.slowPrint("on 3 counts of ");
-            TextFunctions.slowPrint("Adultery, ", "red");
-            TextFunctions.slowPrint("and two counts of, ");
-            TextFunctions.slowPrint("Murder ", "red");
-            TextFunctions.slowPrint("aswell as several unverified cases of ");
-            TextFunctions.slowPrint("Unsanctioned ", "red");
-            TextFunctions.slowPrint("duels. ");
+            TextFunctions.SlowPrint($"{settings.rank} ");
+            TextFunctions.SlowPrint(Environment.UserName + "...", "green");
+            TextFunctions.SlowPrint(" im afraid it has come to this, you are hereby found ");
+            TextFunctions.SlowPrint("Guilty, ", "red");
+            TextFunctions.SlowPrint("on 3 counts of ");
+            TextFunctions.SlowPrint("Adultery, ", "red");
+            TextFunctions.SlowPrint("and two counts of, ");
+            TextFunctions.SlowPrint("Murder ", "red");
+            TextFunctions.SlowPrint("aswell as several unverified cases of ");
+            TextFunctions.SlowPrint("Unsanctioned ", "red");
+            TextFunctions.SlowPrint("duels. ");
 
             //SECOND PARAGRAPH
             Console.WriteLine("\n ");
             Console.Write(" ");
             settings.wordcounter = 0;
-            TextFunctions.slowPrint("Due to these ");
-            TextFunctions.slowPrint("Serius Offences, ", "red");
-            TextFunctions.slowPrint("you should be sentenced to ");
-            TextFunctions.slowPrint("Death... ", "red");
-            TextFunctions.slowPrint("But in the light of your past acts of ");
-            TextFunctions.slowPrint("Heroism and Service ", "green");
-            TextFunctions.slowPrint("you shall be granted leniency by this court.");
+            TextFunctions.SlowPrint("Due to these ");
+            TextFunctions.SlowPrint("Serius Offences, ", "red");
+            TextFunctions.SlowPrint("you should be sentenced to ");
+            TextFunctions.SlowPrint("Death... ", "red");
+            TextFunctions.SlowPrint("But in the light of your past acts of ");
+            TextFunctions.SlowPrint("Heroism and Service ", "green");
+            TextFunctions.SlowPrint("you shall be granted leniency by this court.");
 
             //THIRD PARAGRAPH
             Console.WriteLine("\n ");
             Console.Write(" ");
             settings.wordcounter = 0;
-            TextFunctions.slowPrint("By the power vested in me by his holy Emperor \n ");
+            TextFunctions.SlowPrint("By the power vested in me by his holy Emperor \n ");
             settings.wordcounter = 0;
-            TextFunctions.slowPrint("Iskander XXII... ", "yellow");
-            TextFunctions.slowPrint("You are hereby sentenced to a trial by combat, with ");
-            TextFunctions.slowPrint("God ", "yellow");
-            TextFunctions.slowPrint("as your only witness. ");
-            TextFunctions.slowPrint("May you repent for your ");
-            TextFunctions.slowPrint("Crimes ", "crimes");
-            TextFunctions.slowPrint("and prove your innocence before the divine. ");
+            TextFunctions.SlowPrint("Iskander XXII... ", "yellow");
+            TextFunctions.SlowPrint("You are hereby sentenced to a trial by combat, with ");
+            TextFunctions.SlowPrint("God ", "yellow");
+            TextFunctions.SlowPrint("as your only witness. ");
+            TextFunctions.SlowPrint("May you repent for your ");
+            TextFunctions.SlowPrint("Crimes ", "crimes");
+            TextFunctions.SlowPrint("and prove your innocence before the divine. ");
 
             //LAST PARAGRAPH
             Console.WriteLine("\n ");
             Console.Write(" ");
             settings.wordcounter = 0;
-            TextFunctions.slowPrint("You will leave at dawn for the ");
-            TextFunctions.slowPrint("Dark Tower, ", "purple");
-            TextFunctions.slowPrint("and if you survive its tormented halls, may you ");
-            TextFunctions.slowPrint("return a free man. ", "green");
-            TextFunctions.slowPrint("It pains me to do this, ");
-            TextFunctions.slowPrint("Old Friend. ", "green");
-            TextFunctions.slowPrint("As a last favor to you, for all you have done for me, i shall make sure your ");
-            TextFunctions.slowPrint("Daughter ", "yellow");
-            TextFunctions.slowPrint("gets taken care of.");
+            TextFunctions.SlowPrint("You will leave at dawn for the ");
+            TextFunctions.SlowPrint("Dark Tower, ", "purple");
+            TextFunctions.SlowPrint("and if you survive its tormented halls, may you ");
+            TextFunctions.SlowPrint("return a free man. ", "green");
+            TextFunctions.SlowPrint("It pains me to do this, ");
+            TextFunctions.SlowPrint("Old Friend. ", "green");
+            TextFunctions.SlowPrint("As a last favor to you, for all you have done for me, i shall make sure your ");
+            TextFunctions.SlowPrint("Daughter ", "yellow");
+            TextFunctions.SlowPrint("gets taken care of.");
 
             //END OF INTRO
             Console.WriteLine("\n ");
             Console.Write(" ");
             settings.wordcounter = 0;
-            TextFunctions.slowPrint("Good Luck, Old Friend.", "green");
+            TextFunctions.SlowPrint("Good Luck, Old Friend.", "green");
             Console.WriteLine("\n ");
             Console.Write(" ");
             settings.wordcounter = 0;
@@ -74,7 +74,7 @@
 
             CancellationTokenSource cts = new CancellationTokenSource();
             CancellationToken token = cts.Token;
-            ThreadPool.QueueUserWorkItem(state => TextFunctions.continueDotter(token));
+            ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
 
             while (true)
             {
@@ -84,7 +84,6 @@
                     break;
                 }
             }
-            Console.CursorVisible = true;
         }
     }
 }

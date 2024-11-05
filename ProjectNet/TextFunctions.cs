@@ -2,7 +2,7 @@
 {
     class TextFunctions
     {
-        public static void continueDotter(CancellationToken token)
+        public static void ContinueDotter(CancellationToken token)
         {
             int dot = 0;
             while (!token.IsCancellationRequested)
@@ -16,10 +16,9 @@
                     Console.Write("\b \b\b \b\b \b");
                 }
             }
-            Console.CursorVisible = true;
         }
 
-        public static void slowPrint(string print, string highlight = "")
+        public static void SlowPrint(string print, string highlight = "")
         {
             var speed = 60 / settings.speed;
             var reset = false;
