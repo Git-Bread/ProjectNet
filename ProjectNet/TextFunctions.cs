@@ -9,7 +9,7 @@
             {
                 Console.Write(".");
                 dot++;
-                Thread.Sleep(1500);
+                Thread.Sleep(2000);
                 if (dot == 3)
                 {
                     dot = 0;

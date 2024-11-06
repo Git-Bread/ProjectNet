@@ -45,19 +45,22 @@
             ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
 
             //SELECT OPTIONS
-            while (true)
-            {
-                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.D1)
+            while(true) {
+                ConsoleKeyInfo key = Console.ReadKey();
+                if (key.Key == ConsoleKey.D1)
                 {
                     cts.Cancel();
+                    HolyScripture.Scripture();
+               
                     break;
                 }
-                else if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.D2)
+                else if (key.Key == ConsoleKey.D2)
                 {
                     cts.Cancel();
+                    DisplaySettings();
                     break;
                 }
-                else if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.D3)
+                else if (key.Key == ConsoleKey.D3)
                 {
                     cts.Cancel();
                     break;
@@ -66,8 +69,74 @@
         }
         public static void DisplaySettings()
         {
-            HolyScripture.ReadScripture();
+            //SETTINGS
+            //FIRST PARAGRAPH
+            Console.Clear();
+            Console.WriteLine();
+            Console.CursorVisible = false;
+            settings.wordcounter = 0;
+            TextFunctions.SlowPrint(" You offer your hearfelt prayers, and ");
+            TextFunctions.SlowPrint("God ", "yellow");
+            TextFunctions.SlowPrint("responds with a holy relevation. ");
+            TextFunctions.SlowPrint("You may momentarely change the fabric of this world, use it wisely.");
 
+            Console.WriteLine("\n");
+            settings.wordcounter = 0;
+            TextFunctions.SlowPrint(" Select what faults you want to ammend:");
+
+            Console.WriteLine("\n");
+            settings.wordcounter = 0;
+            TextFunctions.SlowPrint($" 1. Skip intro sequence = {settings.SkipIntro}");
+            Console.WriteLine();
+            TextFunctions.SlowPrint($" 2. Text Speed = {settings.speed}");
+            settings.wordcounter = 0;
+            Console.WriteLine("\n");
+            TextFunctions.SlowPrint($" 3. Return");
+            Console.WriteLine("\n");
+
+            //SELECT OPTIONS
+            bool hold = true;
+            while (hold)
+            {
+                ConsoleKeyInfo key = Console.ReadKey();
+                switch(key.Key)
+                {
+                    case ConsoleKey.D1:
+                        if(settings.SkipIntro)
+                        {
+                            settings.SkipIntro = false;
+                        }
+                        else
+                        {
+                            settings.SkipIntro = true;
+                        }
+                        DisplaySettings();
+                        break;
+                    case ConsoleKey.D2:
+                        settings.wordcounter = 0;
+                        Console.WriteLine();
+                        TextFunctions.SlowPrint("Enter a new value, this modifier is a divider of the total time \n");
+                        Console.WriteLine();
+                        while (true)
+                        {
+                            string value = Console.ReadLine() ?? "";
+                            int x;
+                            if (value == "" || !Int32.TryParse(value, out x))
+                            {
+                                TextFunctions.SlowPrint("Invalid input, only numbers above 0 are legal \n");
+                                continue;
+                            }
+                            settings.speed = x;
+                            DisplaySettings();
+                            break;
+                        }
+                        break;
+                    case ConsoleKey.D3:
+                        hold = false;
+                        break;
+                }
+            }
+            MenuDisplay();
         }
     }
 }
