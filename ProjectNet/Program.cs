@@ -1,5 +1,4 @@
-﻿using System.IO;
-namespace ProjectNet
+﻿namespace ProjectNet
 {
     public class TextGame
     {

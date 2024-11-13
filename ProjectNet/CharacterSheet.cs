@@ -8,7 +8,7 @@ namespace ProjectNet
         internal static int strength = 1;
         internal static int mental = 1;
         internal static string alignment = "neutral";
-        internal static Weapon weapon = new();
+        internal static Weapon weapon = new("null", 0, false);
         internal static Floor floor = new();
     }
 }
