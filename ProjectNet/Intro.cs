@@ -9,8 +9,8 @@
             Console.Write(" ");
             Console.CursorVisible = false;
 
-            //FIRST PARAGRAPH
-            TextFunctions.SlowPrint($"{settings.rank} ");
+            #region First Paragraph
+            TextFunctions.SlowPrint($"{Settings.rank} ");
             TextFunctions.SlowPrint(Environment.UserName + "...", "green");
             TextFunctions.SlowPrint(" im afraid it has come to this, you are hereby found ");
             TextFunctions.SlowPrint("Guilty, ", "red");
@@ -21,11 +21,11 @@
             TextFunctions.SlowPrint("aswell as several unverified cases of ");
             TextFunctions.SlowPrint("Unsanctioned ", "red");
             TextFunctions.SlowPrint("duels. ");
-
-            //SECOND PARAGRAPH
+            #endregion
+            #region Second Paragraph
             Console.WriteLine("\n ");
             Console.Write(" ");
-            settings.wordcounter = 0;
+            Settings.wordCounter = 0;
             TextFunctions.SlowPrint("Due to these ");
             TextFunctions.SlowPrint("Serius Offences, ", "red");
             TextFunctions.SlowPrint("you should be sentenced to ");
@@ -33,13 +33,13 @@
             TextFunctions.SlowPrint("But in the light of your past acts of ");
             TextFunctions.SlowPrint("Heroism and Service ", "green");
             TextFunctions.SlowPrint("you shall be granted leniency by this court.");
-
-            //THIRD PARAGRAPH
+            #endregion
+            #region Third Paragraph
             Console.WriteLine("\n ");
             Console.Write(" ");
-            settings.wordcounter = 0;
+            Settings.wordCounter = 0;
             TextFunctions.SlowPrint("By the power vested in me by his holy Emperor \n ");
-            settings.wordcounter = 0;
+            Settings.wordCounter = 0;
             TextFunctions.SlowPrint("Iskander XXII... ", "yellow");
             TextFunctions.SlowPrint("You are hereby sentenced to a trial by combat, with ");
             TextFunctions.SlowPrint("God ", "yellow");
@@ -47,11 +47,11 @@
             TextFunctions.SlowPrint("May you repent for your ");
             TextFunctions.SlowPrint("Crimes ", "crimes");
             TextFunctions.SlowPrint("and prove your innocence before the divine. ");
-
-            //LAST PARAGRAPH
+            #endregion
+            #region Fourth Paragraph
             Console.WriteLine("\n ");
             Console.Write(" ");
-            settings.wordcounter = 0;
+            Settings.wordCounter = 0;
             TextFunctions.SlowPrint("You will leave at dawn for the ");
             TextFunctions.SlowPrint("Dark Tower, ", "purple");
             TextFunctions.SlowPrint("and if you survive its tormented halls, may you ");
@@ -61,15 +61,15 @@
             TextFunctions.SlowPrint("As a last favor to you, for all you have done for me, i shall make sure your ");
             TextFunctions.SlowPrint("Daughter ", "yellow");
             TextFunctions.SlowPrint("gets taken care of.");
-
-            //END OF INTRO
+            #endregion
+            
             Console.WriteLine("\n ");
             Console.Write(" ");
-            settings.wordcounter = 0;
+            Settings.wordCounter = 0;
             TextFunctions.SlowPrint("Good Luck, Old Friend.", "green");
             Console.WriteLine("\n ");
             Console.Write(" ");
-            settings.wordcounter = 0;
+            Settings.wordCounter = 0;
             Console.Write("Press Enter to Continue");
 
             CancellationTokenSource cts = new CancellationTokenSource();

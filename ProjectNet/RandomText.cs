@@ -1,11 +1,12 @@
 ﻿using System;
 namespace ProjectNet
 {
-    internal class HolyScripture
+    internal class RandomText
     {
         public static void Scripture()
         {
             //lots of text for flavour, probaly a waste of time
+            #region Scriptures
             string[] Scriptures = {
             " The Lord giveth, and the lord taketh, ask not what the lord can do for you, ask what you can do for the Lord. - Salem 7:2",
             " Through holy penance and exhorting purity among his flock, a lost soul may once again enter his warm embrace. - Salem 7:8",
@@ -17,18 +18,19 @@ namespace ProjectNet
             " It is the job of the Peasant to tend the fields, to offer the tithes, while its the job of the clergy to ensure the laypeople do not stray from his divine design - Calix 20:3",
             " I crave for the certanty and strenght of steel, I aspire for the purity of the blessed machine, when that body you call a temple decays and fails you. You will come to me for salvation, but I am already saved... Even in death I serve the Omnissiah - Unknown Heathen",
             " Let not the righteous falter, weakness leads to sin, and sin leads to depravity. Stand tall and remember, you are his agents on this world, his holy Justice. Remain pure in spirit, devout in labour and fair in rule. Only then, the Lord will smile upon you. - High Proctor Isobel",
-        };
+            };
+            #endregion
             Random random = new();
             Console.Clear();
             Console.WriteLine("");
-            settings.wordcounter = 0;
-            settings.lineSize = settings.lineSize * 2;
+            Settings.wordCounter = 0;
+            Settings.lineSize = Settings.lineSize * 2;
             int randomNumber = random.Next(0, Scriptures.Length);
             TextFunctions.SlowPrint(Scriptures[randomNumber]);
-            settings.lineSize = settings.lineSize / 2;
+            Settings.lineSize = Settings.lineSize / 2;
 
             Console.WriteLine("\n");
-            settings.wordcounter = 0;
+            Settings.wordCounter = 0;
             TextFunctions.SlowPrint(" Press Enter to Continue");
 
             CancellationTokenSource cts = new CancellationTokenSource();

@@ -22,43 +22,59 @@
             }
         }
 
+        internal static void RowPrint(string text)
+        {
+            Console.WriteLine(text);
+            Thread.Sleep(100);
+        }
+
         public static void SlowPrint(string print, string highlight = "")
         {
-            var speed = 60 / settings.speed;
+            var speed = 60 / Settings.speed;
             var reset = false;
-            if (highlight == "red")
+
+            switch (highlight)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                reset = true;
+                default: break;
+                case "red":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    reset = true;
+                    break;
+                case "purple":
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    reset = true;
+                    break;
+                case "green":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    reset = true;
+                    break;
+                case "yellow":
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    reset = true;
+                    break;
+                case "brown":
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    reset = true;
+                    break;
+                case "white":
+                    Console.ForegroundColor = ConsoleColor.White;
+                    reset = true;
+                    break;
             }
-            else if (highlight == "purple")
-            {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                reset = true;
-            }
-            else if (highlight == "green")
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                reset = true;
-            }
-            else if (highlight == "yellow")
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                reset = true;
-            }
+
             for (int i = 0; i < print.Length; i++)
             {
-                settings.wordcounter++;
-                if (settings.wordcounter >= settings.lineSize && print[i] == ' ')
+                Settings.wordCounter++;
+                if (Settings.wordCounter >= Settings.lineSize && print[i] == ' ')
                 {
                     Console.WriteLine();
-                    settings.wordcounter = 0;
+                    Settings.wordCounter = 0;
                 }
                 Console.Write(print[i]);
                 Thread.Sleep(speed);
                 if (print[i] == ',' || print[i] == '.')
                 {
-                    Thread.Sleep(speed * 5);
+                    Thread.Sleep(600 / Settings.speed);
                 }
             }
             if (reset)
