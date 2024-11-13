@@ -64,17 +64,17 @@
                 ConsoleKeyInfo key = Console.ReadKey();
                 if (key.Key == ConsoleKey.D1)
                 {
-                    Settings.alignment = "good";
+                    CharacterSheet.alignment = "good";
                     break;
                 }
                 else if (key.Key == ConsoleKey.D2)
                 {
-                    Settings.alignment = "neutral";
+                    CharacterSheet.alignment = "neutral";
                     break;
                 }
                 else if (key.Key == ConsoleKey.D3)
                 {
-                    Settings.alignment = "evil";
+                    CharacterSheet.alignment = "evil";
                     break;
                 }
             }
@@ -155,13 +155,13 @@
                 if (key.Key == ConsoleKey.D1)
                 {
                     Weapon spear = new("Trusty Spear", 3, false);
-                    Settings.weapon = spear;
+                    CharacterSheet.weapon = spear;
                     break;
                 }
                 else if (key.Key == ConsoleKey.D2)
                 {
                     Weapon sword = new("Light Blade", 4, true);
-                    Settings.weapon = sword;
+                    CharacterSheet.weapon = sword;
                     break;
                 }
             }

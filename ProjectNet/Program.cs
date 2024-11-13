@@ -1,9 +1,43 @@
-﻿namespace ProjectNet
+﻿using System.IO;
+namespace ProjectNet
 {
     public class TextGame
     {
         public static void Main(string[] args)
         {
+            //error handling
+            if (!File.Exists("config/monsters.json"))
+            {
+                Console.WriteLine("NO MONSTERS FILE, PLEASE CHECK INSTALL");
+                System.Environment.Exit(0);
+            };
+            //error handling
+            if (!File.Exists("config/character.json"))
+            {
+                Console.WriteLine("NO CHARACTER FILE, DO YOU WANT TO CREATE ONE? (WILL EXIT UPON COMPLETION)");
+                Console.WriteLine();
+                Console.WriteLine("1. Yes");
+                Console.WriteLine("2. No");
+                bool run = true;
+                while (run)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.D1)
+                    {
+                        File.Create("config/character.json");
+                        System.Environment.Exit(0);
+                        break;
+                    }
+                    else if (key.Key == ConsoleKey.D2)
+                    {
+                        Console.WriteLine("PLEASE CHECK INSTALLATION");
+                        System.Environment.Exit(0);
+                        break;
+                    }
+                }
+            };
+
+
             //console windows only for resize, linux be damned
             Console.Title = "The Dark Tower";
 

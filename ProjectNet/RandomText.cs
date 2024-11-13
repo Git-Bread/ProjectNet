@@ -1,5 +1,4 @@
-﻿using System;
-namespace ProjectNet
+﻿namespace ProjectNet
 {
     internal class RandomText
     {
