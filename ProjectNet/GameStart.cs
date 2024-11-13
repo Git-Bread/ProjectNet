@@ -137,7 +137,7 @@
             TextFunctions.SlowPrint("Sharp and Defensive. ", "white");
             TextFunctions.SlowPrint("Its length gives many advantages and it excels in ");
             TextFunctions.SlowPrint("Thrusting Attacks.", "green");
-            Console.WriteLine("");
+            Console.WriteLine("\n");
             Settings.wordCounter = 0;
             TextFunctions.SlowPrint(" 2. The Sword ");
             TextFunctions.SlowPrint("Offensive and Light ", "white");
@@ -165,6 +165,7 @@
                     break;
                 }
             }
+            GameMaster.RunGame();
         }
     }
 }

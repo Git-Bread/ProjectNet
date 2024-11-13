@@ -1,5 +1,4 @@
-﻿
-using System.Text.Json;
+﻿using Newtonsoft.Json;
 
 namespace ProjectNet
 {
@@ -11,21 +10,21 @@ namespace ProjectNet
     }
     public class Monster
     {
-        public string Name;
-        public string Description;
-        public int HP;
-        public int Damage;
-        public int DefenseType;
-        public int DifficultyTier;
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int HP { get; set; }
+        public int Damage { get; set; }
+        public int DefenseType { get; set; }
+        public int DifficultyTier { get; set; }
 
-        public Monster(string name, string description, int hp, int damage, int defenseType, int difficultyTier)
+        public Monster(string name, string description, int hp, int damage, int defense_type, int difficulty_tier)
         {
-            Name = name;
-            Description = description;
-            HP = hp;
-            Damage = damage;
-            DefenseType = defenseType;
-            DifficultyTier = difficultyTier;
+            this.Name = name;
+            this.Description = description;
+            this.HP = hp;
+            this.Damage = damage;
+            this.DefenseType = defense_type;
+            this.DifficultyTier = difficulty_tier;
         }
     }
 
@@ -50,12 +49,11 @@ namespace ProjectNet
                 floor.objects.Add(objects[objectNumbers[i]]);
             }
 
-            string json = File.ReadAllText("config/monsters.json");
-            List<Monster> monsterList = JsonSerializer.Deserialize<List<Monster>>(json) ?? new();
+            List<Monster> monsterList = JsonConvert.DeserializeObject<List<Monster>>(File.ReadAllText("config/monsters.json")) ?? new();
             List<Monster> sortedMonsterList = monsterList.FindAll(monster => monster.DifficultyTier == level);
             floor.opponent = sortedMonsterList[random.Next(sortedMonsterList.Count)];
-
-            return new Floor();
+            
+            return floor;
         }
 
     }

@@ -32,7 +32,7 @@ namespace ProjectNet
                                     .Append(mlContext.Transforms.Concatenate(@"Features", @"col0"))      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(@"col1", @"col1"))      
                                     .Append(mlContext.Transforms.NormalizeMinMax(@"Features", @"Features"))      
-                                    .Append(mlContext.MulticlassClassification.Trainers.OneVersusAll(binaryEstimator:mlContext.BinaryClassification.Trainers.LbfgsLogisticRegression(l1Regularization:0.115759951940308F,l2Regularization:9.54735243990998F,labelColumnName:@"col1",featureColumnName:@"Features"), labelColumnName: @"col1"))      
+                                    .Append(mlContext.MulticlassClassification.Trainers.LbfgsMaximumEntropy(l1Regularization:0.193895967231699F,l2Regularization:0.315679073489639F,labelColumnName:@"col1",featureColumnName:@"Features"))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(@"PredictedLabel", @"PredictedLabel"));
 
             return pipeline;
