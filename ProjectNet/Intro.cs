@@ -16,7 +16,7 @@
             TextFunctions.SlowPrint("Guilty, ", "red");
             TextFunctions.SlowPrint("on 3 counts of ");
             TextFunctions.SlowPrint("Adultery, ", "red");
-            TextFunctions.SlowPrint("and two counts of, ");
+            TextFunctions.SlowPrint("and two counts of ");
             TextFunctions.SlowPrint("Murder ", "red");
             TextFunctions.SlowPrint("aswell as several unverified cases of ");
             TextFunctions.SlowPrint("Unsanctioned ", "red");

@@ -10,6 +10,10 @@
                 Console.Write(".");
                 dot++;
                 Thread.Sleep(2000);
+                if(token.IsCancellationRequested)
+                {
+                    break;
+                }
                 if (dot == 3)
                 {
                     dot = 0;
@@ -54,7 +58,7 @@
                 Thread.Sleep(speed);
                 if (print[i] == ',' || print[i] == '.')
                 {
-                    Thread.Sleep(speed * 3);
+                    Thread.Sleep(speed * 5);
                 }
             }
             if (reset)

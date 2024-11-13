@@ -4,6 +4,12 @@
     {
         public static void MenuDisplay()
         {
+            if(settings.WasInSettings[1])
+            {
+                settings.oldSpeed = settings.speed;
+                settings.speed = 100;
+            }
+
             //FIRST PARAGRAPH
             Console.Clear();
             Console.WriteLine();
@@ -40,9 +46,15 @@
             TextFunctions.SlowPrint("Lord, ", "yellow");
             TextFunctions.SlowPrint("awaits your choice");
 
+            if (settings.WasInSettings[1])
+            {
+                settings.speed = settings.oldSpeed;
+            }
+
             CancellationTokenSource cts = new CancellationTokenSource();
             CancellationToken token = cts.Token;
             ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
+            Console.Write(" ");
 
             //SELECT OPTIONS
             while(true) {
@@ -69,6 +81,12 @@
         }
         public static void DisplaySettings()
         {
+            if (settings.WasInSettings[0])
+            {
+                settings.oldSpeed = settings.speed;
+                settings.speed = 100;
+            }
+
             //SETTINGS
             //FIRST PARAGRAPH
             Console.Clear();
@@ -88,12 +106,21 @@
             settings.wordcounter = 0;
             TextFunctions.SlowPrint($" 1. Skip intro sequence = {settings.SkipIntro}");
             Console.WriteLine();
-            TextFunctions.SlowPrint($" 2. Text Speed = {settings.speed}");
+            if (settings.oldSpeed == 0)
+            {
+                settings.oldSpeed = settings.speed;
+            }
+            TextFunctions.SlowPrint($" 2. Text Speed = {settings.oldSpeed}");
             settings.wordcounter = 0;
             Console.WriteLine("\n");
             TextFunctions.SlowPrint($" 3. Return");
             Console.WriteLine("\n");
 
+            if (settings.WasInSettings[0])
+            {
+                settings.speed = settings.oldSpeed;
+            }
+            Console.Write(" ");
             //SELECT OPTIONS
             bool hold = true;
             while (hold)
@@ -110,13 +137,15 @@
                         {
                             settings.SkipIntro = true;
                         }
+                        settings.WasInSettings[0] = true;
                         DisplaySettings();
                         break;
                     case ConsoleKey.D2:
                         settings.wordcounter = 0;
                         Console.WriteLine();
-                        TextFunctions.SlowPrint("Enter a new value, this modifier is a divider of the total time \n");
+                        TextFunctions.SlowPrint(" Enter a new value, this modifier is a divider of the total time \n");
                         Console.WriteLine();
+                        Console.Write(" ");
                         while (true)
                         {
                             string value = Console.ReadLine() ?? "";
@@ -127,6 +156,7 @@
                                 continue;
                             }
                             settings.speed = x;
+                            settings.WasInSettings[0] = true;
                             DisplaySettings();
                             break;
                         }
@@ -136,6 +166,7 @@
                         break;
                 }
             }
+            settings.WasInSettings[1] = true;
             MenuDisplay();
         }
     }

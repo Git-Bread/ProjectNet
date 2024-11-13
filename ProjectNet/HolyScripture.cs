@@ -14,7 +14,7 @@ namespace ProjectNet
             " The Earth is the lowest plane, the center of the celestial bodies, all rotate around earth and all will eventually fall to the Earth. Thats why the Earth is polluted with Sin, while the heavens remains pure. - Hierodommus 17:7",
             " EXALT YOUR FLESH FOR THE LORD, SURRENDER YOUR EXISTANCE TO HIS LOVING EMBRACE. - Unknown Fanatic",
             " Treat your neighbor like your family, and strangers like your neighbor. Eventualy his righteous shall ascend, but untill then we must evoke his image here on Earth - Hierodommus 4:7",
-            " It is the jobb of the Peasant to tend the fields, to offer the tithes, while its the jobb of the clergy to ensure the laypeople do not stray from his divine design - Calix 20:3",
+            " It is the job of the Peasant to tend the fields, to offer the tithes, while its the job of the clergy to ensure the laypeople do not stray from his divine design - Calix 20:3",
             " I crave for the certanty and strenght of steel, I aspire for the purity of the blessed machine, when that body you call a temple decays and fails you. You will come to me for salvation, but I am already saved... Even in death I serve the Omnissiah - Unknown Heathen",
             " Let not the righteous falter, weakness leads to sin, and sin leads to depravity. Stand tall and remember, you are his agents on this world, his holy Justice. Remain pure in spirit, devout in labour and fair in rule. Only then, the Lord will smile upon you. - High Proctor Isobel",
         };
