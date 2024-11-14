@@ -10,7 +10,7 @@ using Microsoft.ML;
 
 namespace ProjectNet
 {
-    public partial class InputDeterminer
+    public partial class ActionDeterminer
     {
         public static ITransformer RetrainPipeline(MLContext context, IDataView trainData)
         {
@@ -32,7 +32,7 @@ namespace ProjectNet
                                     .Append(mlContext.Transforms.Concatenate(@"Features", @"col0"))      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(@"col1", @"col1"))      
                                     .Append(mlContext.Transforms.NormalizeMinMax(@"Features", @"Features"))      
-                                    .Append(mlContext.MulticlassClassification.Trainers.LbfgsMaximumEntropy(l1Regularization:0.193895967231699F,l2Regularization:0.315679073489639F,labelColumnName:@"col1",featureColumnName:@"Features"))      
+                                    .Append(mlContext.MulticlassClassification.Trainers.OneVersusAll(binaryEstimator:mlContext.BinaryClassification.Trainers.LbfgsLogisticRegression(l1Regularization:0.0332930624108992F,l2Regularization:0.25536143425051F,labelColumnName:@"col1",featureColumnName:@"Features"), labelColumnName: @"col1"))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(@"PredictedLabel", @"PredictedLabel"));
 
             return pipeline;

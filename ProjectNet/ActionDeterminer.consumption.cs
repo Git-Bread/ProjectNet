@@ -7,10 +7,10 @@ using System.IO;
 using System.Collections.Generic;
 namespace ProjectNet
 {
-    public partial class InputDeterminer
+    public partial class ActionDeterminer
     {
         /// <summary>
-        /// model input class for InputDeterminer.
+        /// model input class for ActionDeterminer.
         /// </summary>
         #region model input class
         public class ModelInput
@@ -26,7 +26,7 @@ namespace ProjectNet
         #endregion
 
         /// <summary>
-        /// model output class for InputDeterminer.
+        /// model output class for ActionDeterminer.
         /// </summary>
         #region model output class
         public class ModelOutput
@@ -39,7 +39,7 @@ namespace ProjectNet
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("inputDeterminer.zip");
+        private static string MLNetModelPath = Path.GetFullPath("ActionDeterminer.zip");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 

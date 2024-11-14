@@ -10,5 +10,7 @@ namespace ProjectNet
         internal static string alignment = "neutral";
         internal static Weapon weapon = new("null", 0, false);
         internal static Floor floor = new();
+        internal static int pain = 0;
+        internal static bool key = false;
     }
 }

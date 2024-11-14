@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,15 +9,15 @@
     <PackageReference Include="Microsoft.ML" Version="1.6.0" />
     <PackageReference Include="Microsoft.ML.FastTree" Version="1.6.0" />
   </ItemGroup>
-  <ItemGroup Label="inputDeterminer">
-    <None Include="inputDeterminer.consumption.cs">
-      <DependentUpon>inputDeterminer.mbconfig</DependentUpon>
+  <ItemGroup Label="ActionDeterminer">
+    <None Include="ActionDeterminer.consumption.cs">
+      <DependentUpon>ActionDeterminer.mbconfig</DependentUpon>
     </None>
-    <None Include="inputDeterminer.training.cs">
-      <DependentUpon>inputDeterminer.mbconfig</DependentUpon>
+    <None Include="ActionDeterminer.training.cs">
+      <DependentUpon>ActionDeterminer.mbconfig</DependentUpon>
     </None>
-    <None Include="inputDeterminer.zip">
-      <DependentUpon>inputDeterminer.mbconfig</DependentUpon>
+    <None Include="ActionDeterminer.zip">
+      <DependentUpon>ActionDeterminer.mbconfig</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

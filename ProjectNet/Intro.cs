@@ -5,6 +5,7 @@
         public static void PlayIntro()
         {
             //SETUP
+            Console.Clear();
             Console.WriteLine();
             Console.Write(" ");
             Console.CursorVisible = false;
