@@ -48,7 +48,6 @@ namespace ProjectNet
                 }
             }
             string[] objects = { "Table", "Chair", "Bed", "Fireplace", "Chest" };
-            Console.WriteLine(objectNumbers.Count);
             for (int i = 0; i < objectNumbers.Count; i++)
             {
                 floor.objects.Add(objects[objectNumbers[i]]);

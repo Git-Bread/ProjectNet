@@ -69,7 +69,7 @@
                 Console.WriteLine();
                 TextFunctions.SlowPrint(" In this demo it is recomended to not interact with the ");
                 TextFunctions.SlowPrint("Console ", "yellow");
-                TextFunctions.SlowPrint("unless the program asks for it.");
+                TextFunctions.SlowPrint("unless the program asks for it, with the exception of during the actual game.");
                 Settings.wordCounter = 0;
                 Console.WriteLine();
                 Console.WriteLine();

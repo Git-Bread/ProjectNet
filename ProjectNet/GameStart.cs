@@ -104,7 +104,7 @@
             TextFunctions.SlowPrint(" The ");
             TextFunctions.SlowPrint("Tower ", "purple");
             TextFunctions.SlowPrint("is featureless, all its six sides are impossibly smooth and no windows or even holes can be seen across its surface. ");
-            TextFunctions.SlowPrint("The only detail of note is a pair of double doors made out of wood ");
+            TextFunctions.SlowPrint("The only detail of note is a pair of double doors made out of ");
             TextFunctions.SlowPrint("Wood ", "brown");
             TextFunctions.SlowPrint("that seems hopelessly out of place on the  ");
             TextFunctions.SlowPrint("Obsidian ", "purple");
@@ -125,7 +125,7 @@
             Settings.wordCounter = 0;
             TextFunctions.SlowPrint(" The ");
             TextFunctions.SlowPrint("Arnaments ", "white");
-            TextFunctions.SlowPrint("show large signs of neglect and exposure to the elements, but none the less, you gotta work with what you got.");
+            TextFunctions.SlowPrint("show large signs of neglect and exposure to the elements, but none the less, you gotta work with what you got. ");
             TextFunctions.SlowPrint("Two ");
             TextFunctions.SlowPrint("Weapons ", "white");
             TextFunctions.SlowPrint("are in suprisingly good condition, you may pick one.");

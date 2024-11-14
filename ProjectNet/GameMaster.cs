@@ -48,6 +48,7 @@
                 Floor floor = CharacterSheet.floor;
                 bool monsterDefeated = false;
                 Random rand = new Random();
+
                 #region Standard Description
                 Settings.wordCounter = 0;
                 Console.WriteLine();
@@ -58,21 +59,23 @@
                 Settings.wordCounter = 0;
                 Console.WriteLine("\n");
                 #endregion
+
                 bool playing = true;
                 string restFactor = "none";
                 int heatFactor = 1;
                 int chest = 3;
                 bool lookedAround = false;
+
                 while (playing)
                 {
-                    Console.WriteLine();
                     Console.Write(" ");
-                    float action = Predicter.Determine(Console.ReadLine() ?? "null");
-                    Console.WriteLine("\n");
+                    float action = Predicter.Determine(Console.ReadLine() ?? "look around");
+                    Console.WriteLine();
 
                     switch (action)
                     {
                         case 1:
+                            #region go up the stairs
                             if (monsterDefeated)
                             {
                                 playing = false;
@@ -85,8 +88,10 @@
                                 Console.WriteLine("\n");
                             }
                             break;
+                            #endregion
                         case 2:
-                            if(!monsterDefeated)
+                            #region advance
+                            if (!monsterDefeated)
                             {
                                 monsterDefeated = RunCombat();
                             }
@@ -98,7 +103,9 @@
                                 Console.WriteLine("\n");
                             }
                             break;
+                            #endregion
                         case 3:
+                            #region look around
                             if (lookedAround)
                             {
                                 TextFunctions.SlowPrint(" You have already looked around.");
@@ -171,8 +178,10 @@
                             }
                             lookedAround = true;
                             break;
+                        #endregion
                         case 4:
-                            switch(restFactor)
+                            #region rest
+                            switch (restFactor)
                             {
                                 case "none":
                                     TextFunctions.SlowPrint(" You lay down on the stone tiles, it might not be ");
@@ -191,7 +200,7 @@
                                         {
                                             CharacterSheet.life += recover;
                                         }
-                                        TextFunctions.SlowPrint($" You recover {recover} HP, ", "green");
+                                        TextFunctions.SlowPrint($" You recover {recover} HP, your HP is {CharacterSheet.life} and maximum is {5 + CharacterSheet.strength}. ", "green");
                                         TextFunctions.SlowPrint("however the ");
                                         TextFunctions.SlowPrint("back pain ", "red");
                                         TextFunctions.SlowPrint("will take a while to go away.");
@@ -224,7 +233,7 @@
                                             Settings.wordCounter = 0;
                                             Console.WriteLine("\n");
                                         }
-                                        TextFunctions.SlowPrint($" You recover {recover} HP. ", "green");
+                                        TextFunctions.SlowPrint($" You recover {recover} HP, your HP is {CharacterSheet.life} and maximum is {5 + CharacterSheet.strength}. ", "green");
                                         Settings.wordCounter = 0;
                                         Console.WriteLine("\n");
                                     }
@@ -252,7 +261,7 @@
                                             Settings.wordCounter = 0;
                                             Console.WriteLine("\n");
                                         }
-                                        TextFunctions.SlowPrint($" You recover {recover} HP. ", "green");
+                                        TextFunctions.SlowPrint($" You recover {recover} HP, your HP is {CharacterSheet.life} and maximum is {5 + CharacterSheet.strength}. ", "green");
                                         Settings.wordCounter = 0;
                                         Console.WriteLine("\n");
                                     }
@@ -281,7 +290,7 @@
                                             Settings.wordCounter = 0;
                                             Console.WriteLine("\n");
                                         }
-                                        TextFunctions.SlowPrint($" You recover {recover} HP. ", "green");
+                                        TextFunctions.SlowPrint($" You recover {recover} HP, your HP is {CharacterSheet.life} and maximum is {5 + CharacterSheet.strength}. ", "green");
                                         Settings.wordCounter = 0;
                                         Console.WriteLine("\n");
                                     }
@@ -289,8 +298,10 @@
 
                             }
                             break;
+                        #endregion
                         case 5:
-                            switch(chest)
+                            #region open chest
+                            switch (chest)
                             {
                                 case 0:
                                     TextFunctions.SlowPrint(" You apporach the closed chest and open it with anticipation...");
@@ -325,12 +336,15 @@
                                     break;
                             }
                             break;
+                            #endregion
                     }
                 }
 
                 if (floor.level == 3)
                 {
-                    TextFunctions.SlowPrint("CONGRATS! You won the game!");
+                    Console.Clear();
+                    TextFunctions.SlowPrint(" Congratulations! You won the game, hurray!");
+                    Thread.Sleep(5000);
                     System.Environment.Exit(0);
                 }
                 else
@@ -350,24 +364,27 @@
             Settings.wordCounter = 0;
             Console.WriteLine("\n");
             bool combat = true;
+
             while (combat)
             {
-                Console.WriteLine();
                 Console.Write(" ");
                 float action = Predicter.CombatDetermine(Console.ReadLine() ?? "null");
                 Weapon weapon = CharacterSheet.weapon;
                 Console.Write(" ");
                 double combatModifier = 1;
+
                 if (action == 1)
                 {
-                    TextFunctions.RowPrint($" You perform a slashing action with { CharacterSheet.weapon.name}");
+                    TextFunctions.RowPrint($"You perform a slashing action with { CharacterSheet.weapon.name}");
                 }
                 else
                 {
-                    TextFunctions.RowPrint($" You perform a thrusting action with { CharacterSheet.weapon.name}");
+                    TextFunctions.RowPrint($"You perform a thrusting action with { CharacterSheet.weapon.name}");
                 }
+
                 Settings.wordCounter = 0;
                 Console.WriteLine();
+
                 if (monster.DefenseType != weapon.type && monster.DefenseType != action - 1)
                 {
                     combatModifier = 2;
@@ -391,21 +408,28 @@
                 else
                 {
                     int damageNum = (int)Math.Round((weapon.damage * randomRollDMG * combatModifier));
+                    bool doDamage = true;
                     if(CharacterSheet.pain > 0 && random.Next(10) > 6)
                     {
-                        TextFunctions.RowPrint("OUCH, your back is acting up, you miss this attack, pity");
+                        TextFunctions.RowPrint(" OUCH, your back is acting up, you miss this attack, pity");
+                        doDamage = false;
                     }
-                    TextFunctions.RowPrint($"You hit the monster, for {damageNum} damage!");
-                    monster.HP -= damageNum;
+                    if(doDamage)
+                    {
+                        TextFunctions.RowPrint($" You hit the monster, for {damageNum} damage!");
+                        monster.HP -= damageNum;
+                    }
                 }
+
                 Settings.wordCounter = 0;
-                Console.WriteLine("\n");
+                Console.WriteLine();
 
                 if (monster.HP <= 0)
                 {
                     TextFunctions.SlowPrint($" Congratulations! You have slain {monster.Name}!");
                     if(random.Next(2) == 1)
                     {
+                        Settings.wordCounter = 0;
                         Console.WriteLine();
                         TextFunctions.SlowPrint(" And he also dropped a key? Neat!");
                         CharacterSheet.key = true;
@@ -420,40 +444,38 @@
                 else
                 {
                     randomRollDMG = random.NextSingle();
-                    TextFunctions.RowPrint($"The {monster.Name} attacks!");
+                    TextFunctions.RowPrint($" The {monster.Name} attacks!");
                     int damageNum = (int)Math.Round(monster.Damage * randomRollDMG);
+
                     if(damageNum > 3)
                     {
                         damageNum -= CharacterSheet.agility;
                     }
-                    if(damageNum >= 0)
+                    if(damageNum <= 0)
                     {
-                        TextFunctions.RowPrint("The monsters attack missed! Good dodge!");
+                        TextFunctions.RowPrint(" The monsters attack missed! Good dodge!");
                     }
                     else
                     {
-                        TextFunctions.RowPrint($"The monsters attack hits!, you suffer {damageNum} damage, ouch.");
+                        TextFunctions.RowPrint($" The monsters attack hits!, you suffer {damageNum} damage, ouch.");
                         CharacterSheet.life -= damageNum;
+                        TextFunctions.RowPrint($" Current life is: {CharacterSheet.life}");
                     }
+
                     if (CharacterSheet.life <= 0)
                     {
                         Settings.wordCounter = 0;
+                        Console.Clear();
                         Console.WriteLine();
                         Thread.Sleep(400);
-                        TextFunctions.SlowPrint("You have failed... Thus the tower has become your final resting place, farewell.", "red");
+                        TextFunctions.SlowPrint(" You have failed... Thus the tower has become your final resting place, farewell.", "red");
                         Thread.Sleep(4000);
                         System.Environment.Exit(0);
                     }
+
                 }
                 Settings.wordCounter = 0;
-                Console.WriteLine("\n");
-
-                //float monsterHitChance = random.NextSingle();
-
-
-
-                Settings.wordCounter = 0;
-                Console.WriteLine("\n");
+                Console.WriteLine();
             }
             return false;
         }
@@ -481,7 +503,7 @@
                     TextFunctions.SlowPrint("NOTHING! ", "red");
                     break;
                 case 4:
-                    TextFunctions.SlowPrint(" It contains a OP");
+                    TextFunctions.SlowPrint(" It contains a OP ");
                     TextFunctions.SlowPrint("Gigga Blade! ", "green");
                     CharacterSheet.weapon = new Weapon("Very Big Super Blade", 10, 1);
                     TextFunctions.SlowPrint("Time to steamroll some mobs! Hurray!");
