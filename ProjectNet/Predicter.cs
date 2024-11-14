@@ -12,8 +12,22 @@
 
             //Load model and predict output
             var result = ActionDeterminer.Predict(sampleData);
-            var sentiment = result.Prediction;
-            return sentiment;
+            var action = result.Prediction;
+            return action;
+        }
+        public static float CombatDetermine(string input)
+        {
+            //Load sample data
+            var sampleData = new CombatDeterminer.ModelInput()
+            {
+                Col0 = input,
+            };
+
+            //Load model and predict output
+            var result = CombatDeterminer.Predict(sampleData);
+            var move = result.Prediction;
+            return move;
+
         }
     }
 }

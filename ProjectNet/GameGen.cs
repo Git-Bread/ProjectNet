@@ -35,15 +35,20 @@ namespace ProjectNet
         {
             Random random = new();
             Floor floor = new();
-            int itemCount = random.Next(3);
+            int itemCount = random.Next(2);
             List<int> objectNumbers = new();
             int level = CharacterSheet.floor.level + 1;
             floor.level = level;
             for (int i = 0; i < itemCount; i++)
             {
-                objectNumbers.Add(random.Next(6));
+                int next = random.Next(6);
+                if (!objectNumbers.Contains(next))
+                {
+                    objectNumbers.Add(random.Next(5));
+                }
             }
             string[] objects = { "Table", "Chair", "Bed", "Fireplace", "Chest" };
+            Console.WriteLine(objectNumbers.Count);
             for (int i = 0; i < objectNumbers.Count; i++)
             {
                 floor.objects.Add(objects[objectNumbers[i]]);

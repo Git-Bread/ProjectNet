@@ -154,13 +154,13 @@
                 ConsoleKeyInfo key = Console.ReadKey();
                 if (key.Key == ConsoleKey.D1)
                 {
-                    Weapon spear = new("Trusty Spear", 3, false);
+                    Weapon spear = new("Trusty Spear", 3, 0);
                     CharacterSheet.weapon = spear;
                     break;
                 }
                 else if (key.Key == ConsoleKey.D2)
                 {
-                    Weapon sword = new("Light Blade", 4, true);
+                    Weapon sword = new("Light Shortsword", 4, 1);
                     CharacterSheet.weapon = sword;
                     break;
                 }

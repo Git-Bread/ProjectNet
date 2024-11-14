@@ -21,4 +21,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup Label="CombatDeterminer">
+    <None Include="CombatDeterminer.consumption.cs">
+      <DependentUpon>CombatDeterminer.mbconfig</DependentUpon>
+    </None>
+    <None Include="CombatDeterminer.training.cs">
+      <DependentUpon>CombatDeterminer.mbconfig</DependentUpon>
+    </None>
+    <None Include="CombatDeterminer.zip">
+      <DependentUpon>CombatDeterminer.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

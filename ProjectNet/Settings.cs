@@ -16,9 +16,9 @@
     {
         public string name = "";
         public int damage = 0;
-        public bool type = true; //true for sword false for spear
+        public int type = 0; //1 for sword 0 for spear
 
-        public Weapon(string v1, int v2, bool v3)
+        public Weapon(string v1, int v2, int v3)
         {
             this.name = v1;
             this.damage = v2;

@@ -68,8 +68,6 @@
                     Console.WriteLine();
                     Console.Write(" ");
                     float action = Predicter.Determine(Console.ReadLine() ?? "null");
-                    Console.Write(" ");
-                    Console.WriteLine(action);
                     Console.WriteLine("\n");
 
                     switch (action)
@@ -90,7 +88,7 @@
                         case 2:
                             if(!monsterDefeated)
                             {
-                                RunCombat();
+                                monsterDefeated = RunCombat();
                             }
                             else {
                                 TextFunctions.SlowPrint(" The opponent has been vanquished, ");
@@ -226,7 +224,7 @@
                                             Settings.wordCounter = 0;
                                             Console.WriteLine("\n");
                                         }
-                                        TextFunctions.SlowPrint($" You recover {recover} HP, ", "green");
+                                        TextFunctions.SlowPrint($" You recover {recover} HP. ", "green");
                                         Settings.wordCounter = 0;
                                         Console.WriteLine("\n");
                                     }
@@ -254,7 +252,7 @@
                                             Settings.wordCounter = 0;
                                             Console.WriteLine("\n");
                                         }
-                                        TextFunctions.SlowPrint($" You recover {recover} HP, ", "green");
+                                        TextFunctions.SlowPrint($" You recover {recover} HP. ", "green");
                                         Settings.wordCounter = 0;
                                         Console.WriteLine("\n");
                                     }
@@ -283,7 +281,7 @@
                                             Settings.wordCounter = 0;
                                             Console.WriteLine("\n");
                                         }
-                                        TextFunctions.SlowPrint($" You recover {recover} HP, ", "green");
+                                        TextFunctions.SlowPrint($" You recover {recover} HP. ", "green");
                                         Settings.wordCounter = 0;
                                         Console.WriteLine("\n");
                                     }
@@ -342,9 +340,122 @@
             }
         }
 
-        public static void RunCombat()
+        public static bool RunCombat()
         {
-            
+            Monster monster = CharacterSheet.floor.opponent;
+            Random random = new Random();
+            TextFunctions.SlowPrint(" You engage the ");
+            TextFunctions.SlowPrint($"{monster.Name}! ", "red");
+            TextFunctions.SlowPrint("What do you do? ");
+            Settings.wordCounter = 0;
+            Console.WriteLine("\n");
+            bool combat = true;
+            while (combat)
+            {
+                Console.WriteLine();
+                Console.Write(" ");
+                float action = Predicter.CombatDetermine(Console.ReadLine() ?? "null");
+                Weapon weapon = CharacterSheet.weapon;
+                Console.Write(" ");
+                double combatModifier = 1;
+                if (action == 1)
+                {
+                    TextFunctions.RowPrint($" You perform a slashing action with { CharacterSheet.weapon.name}");
+                }
+                else
+                {
+                    TextFunctions.RowPrint($" You perform a thrusting action with { CharacterSheet.weapon.name}");
+                }
+                Settings.wordCounter = 0;
+                Console.WriteLine();
+                if (monster.DefenseType != weapon.type && monster.DefenseType != action - 1)
+                {
+                    combatModifier = 2;
+                }
+                else if (monster.DefenseType != action - 1)
+                {
+                    combatModifier = 1.5;
+                }
+                float randomRollDMG = random.NextSingle();
+                if(randomRollDMG < 0.5F)
+                {
+                    randomRollDMG = 0.5F;
+                }
+                if (randomRollDMG > 0.9F)
+                {
+                    int damageNum = (int)Math.Round(weapon.damage * 2 * combatModifier);
+                    TextFunctions.SlowPrint(" CRITICAL HIT! ");
+                    TextFunctions.RowPrint($"You did {damageNum} damage!");
+                    monster.HP -= damageNum;
+                }
+                else
+                {
+                    int damageNum = (int)Math.Round((weapon.damage * randomRollDMG * combatModifier));
+                    if(CharacterSheet.pain > 0 && random.Next(10) > 6)
+                    {
+                        TextFunctions.RowPrint("OUCH, your back is acting up, you miss this attack, pity");
+                    }
+                    TextFunctions.RowPrint($"You hit the monster, for {damageNum} damage!");
+                    monster.HP -= damageNum;
+                }
+                Settings.wordCounter = 0;
+                Console.WriteLine("\n");
+
+                if (monster.HP <= 0)
+                {
+                    TextFunctions.SlowPrint($" Congratulations! You have slain {monster.Name}!");
+                    if(random.Next(2) == 1)
+                    {
+                        Console.WriteLine();
+                        TextFunctions.SlowPrint(" And he also dropped a key? Neat!");
+                        CharacterSheet.key = true;
+                    }
+                    CharacterSheet.strength += 2;
+                    CharacterSheet.agility += 1;
+                    Settings.wordCounter = 0;
+                    Console.WriteLine("\n");
+                    combat = false;
+                    return true;
+                }
+                else
+                {
+                    randomRollDMG = random.NextSingle();
+                    TextFunctions.RowPrint($"The {monster.Name} attacks!");
+                    int damageNum = (int)Math.Round(monster.Damage * randomRollDMG);
+                    if(damageNum > 3)
+                    {
+                        damageNum -= CharacterSheet.agility;
+                    }
+                    if(damageNum >= 0)
+                    {
+                        TextFunctions.RowPrint("The monsters attack missed! Good dodge!");
+                    }
+                    else
+                    {
+                        TextFunctions.RowPrint($"The monsters attack hits!, you suffer {damageNum} damage, ouch.");
+                        CharacterSheet.life -= damageNum;
+                    }
+                    if (CharacterSheet.life <= 0)
+                    {
+                        Settings.wordCounter = 0;
+                        Console.WriteLine();
+                        Thread.Sleep(400);
+                        TextFunctions.SlowPrint("You have failed... Thus the tower has become your final resting place, farewell.", "red");
+                        Thread.Sleep(4000);
+                        System.Environment.Exit(0);
+                    }
+                }
+                Settings.wordCounter = 0;
+                Console.WriteLine("\n");
+
+                //float monsterHitChance = random.NextSingle();
+
+
+
+                Settings.wordCounter = 0;
+                Console.WriteLine("\n");
+            }
+            return false;
         }
 
         public static void RandReward()
@@ -355,25 +466,25 @@
             {
                 case 0:
                     TextFunctions.SlowPrint(" It contains a prime ");
-                    TextFunctions.SlowPrint(" Lump Of Coal! ", "purple");
+                    TextFunctions.SlowPrint("Lump Of Coal! ", "purple");
                     break;
                 case 1:
                     TextFunctions.SlowPrint(" It contains a cool ");
-                    TextFunctions.SlowPrint(" Stick! ", "yellow");
+                    TextFunctions.SlowPrint("Stick! ", "yellow");
                     break;
                 case 2:
                     TextFunctions.SlowPrint(" It contains a heroic ");
-                    TextFunctions.SlowPrint(" Stone! ", "brown");
+                    TextFunctions.SlowPrint("Stone! ", "brown");
                     break;
                 case 3:
                     TextFunctions.SlowPrint(" It contains a Majestic ");
-                    TextFunctions.SlowPrint(" NOTHING! ", "red");
+                    TextFunctions.SlowPrint("NOTHING! ", "red");
                     break;
                 case 4:
                     TextFunctions.SlowPrint(" It contains a OP");
-                    TextFunctions.SlowPrint(" Gigga Blade! ", "green");
-                    CharacterSheet.weapon = new Weapon("Very Big Super Blade", 10, true);
-                    TextFunctions.SlowPrint(" Time to steamroll some mobs! Hurray!");
+                    TextFunctions.SlowPrint("Gigga Blade! ", "green");
+                    CharacterSheet.weapon = new Weapon("Very Big Super Blade", 10, 1);
+                    TextFunctions.SlowPrint("Time to steamroll some mobs! Hurray!");
                     break;
             }
         }
