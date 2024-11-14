@@ -59,7 +59,11 @@
                 Console.WriteLine("\n");
                 #endregion
                 bool playing = true;
-                while(playing)
+                string restFactor = "none";
+                int heatFactor = 1;
+                int chest = 3;
+                bool lookedAround = false;
+                while (playing)
                 {
                     Console.WriteLine();
                     Console.Write(" ");
@@ -67,10 +71,6 @@
                     Console.Write(" ");
                     Console.WriteLine(action);
                     Console.WriteLine("\n");
-                    string restFactor = "none";
-                    int heatFactor = 1;
-                    int chest = 3;
-                    bool lookedAround = false;
 
                     switch (action)
                     {
@@ -101,15 +101,15 @@
                             }
                             break;
                         case 3:
-                            if (floor.objects.Count > 0)
+                            if (lookedAround)
                             {
-                                if(lookedAround)
-                                {
-                                    TextFunctions.SlowPrint(" You have already looked around.");
-                                    Settings.wordCounter = 0;
-                                    Console.WriteLine("\n");
-                                    break;
-                                }
+                                TextFunctions.SlowPrint(" You have already looked around.");
+                                Settings.wordCounter = 0;
+                                Console.WriteLine("\n");
+                                break;
+                            }
+                            if (floor.objects.Count > 0 && !lookedAround)
+                            {
                                 TextFunctions.SlowPrint(" You look around the room...");
                                 Settings.wordCounter = 0;
                                 Console.WriteLine("\n");
@@ -164,7 +164,6 @@
                                             break;
                                     }
                                 }
-                                lookedAround = true;
                             }
                             else
                             {
@@ -172,6 +171,7 @@
                                 Settings.wordCounter = 0;
                                 Console.WriteLine("\n");
                             }
+                            lookedAround = true;
                             break;
                         case 4:
                             switch(restFactor)
@@ -332,7 +332,8 @@
 
                 if (floor.level == 3)
                 {
-                    
+                    TextFunctions.SlowPrint("CONGRATS! You won the game!");
+                    System.Environment.Exit(0);
                 }
                 else
                 {
