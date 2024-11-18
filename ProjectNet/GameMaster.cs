@@ -344,6 +344,8 @@
                 {
                     Console.Clear();
                     TextFunctions.SlowPrint(" Congratulations! You won the game, hurray!");
+                    Settings.rank = "Duke";
+                    Saver.SaveSettings();
                     Thread.Sleep(5000);
                     System.Environment.Exit(0);
                 }

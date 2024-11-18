@@ -4,6 +4,7 @@
     {
         public static void Main(string[] args)
         {
+            Saver.LoadSettings();
             //error handling
             if (!File.Exists("config/monsters.json"))
             {
@@ -24,6 +25,31 @@
                     if (key.Key == ConsoleKey.D1)
                     {
                         File.Create("config/character.json");
+                        System.Environment.Exit(0);
+                        break;
+                    }
+                    else if (key.Key == ConsoleKey.D2)
+                    {
+                        Console.WriteLine("PLEASE CHECK INSTALLATION");
+                        System.Environment.Exit(0);
+                        break;
+                    }
+                }
+            };
+
+            if (!File.Exists("config/settings.json"))
+            {
+                Console.WriteLine("NO SETTINGS FILE, DO YOU WANT TO CREATE ONE? (WILL EXIT UPON COMPLETION)");
+                Console.WriteLine();
+                Console.WriteLine("1. Yes");
+                Console.WriteLine("2. No");
+                bool run = true;
+                while (run)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.D1)
+                    {
+                        File.Create("config/settings.json");
                         System.Environment.Exit(0);
                         break;
                     }
@@ -69,7 +95,7 @@
                 Console.WriteLine();
                 TextFunctions.SlowPrint(" In this demo it is recomended to not interact with the ");
                 TextFunctions.SlowPrint("Console ", "yellow");
-                TextFunctions.SlowPrint("unless the program asks for it, with the exception of during the actual game.");
+                TextFunctions.SlowPrint("while text is being written, when no text has been written for a second its safe to assume that it needs input. The game saves its progress at every mayor progress milestone and loads automatically on launch.");
                 Settings.wordCounter = 0;
                 Console.WriteLine();
                 Console.WriteLine();

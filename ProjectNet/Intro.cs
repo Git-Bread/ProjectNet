@@ -79,7 +79,7 @@
 
             while (true)
             {
-                if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
+                if (Console.ReadKey().Key == ConsoleKey.Enter)
                 {
                     cts.Cancel();
                     break;

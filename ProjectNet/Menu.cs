@@ -6,7 +6,6 @@
         {
             if(Settings.wasInSettings[1])
             {
-                Settings.oldSpeed = Settings.speed;
                 Settings.speed = 100;
             }
 
@@ -49,10 +48,10 @@
 
             if (Settings.wasInSettings[1])
             {
-                Settings.speed = Settings.oldSpeed;
+                Saver.LoadSettings();
             }
 
-            CancellationTokenSource cts = new CancellationTokenSource();
+            CancellationTokenSource cts = new();
             CancellationToken token = cts.Token;
             ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
 
@@ -75,6 +74,8 @@
                 else if (key.Key == ConsoleKey.D3)
                 {
                     cts.Cancel();
+                    Saver.RemoveSave();
+                    GameStart.Introduction();
                     break;
                 }
             }
@@ -83,7 +84,7 @@
         {
             if (Settings.wasInSettings[0])
             {
-                Settings.oldSpeed = Settings.speed;
+                Saver.SaveSettings();
                 Settings.speed = 100;
             }
 
@@ -92,7 +93,7 @@
             Console.WriteLine();
             Console.CursorVisible = false;
             Settings.wordCounter = 0;
-            TextFunctions.SlowPrint(" You offer your hearfelt prayers, and ");
+            TextFunctions.SlowPrint(" You offer your heartfelt prayers, and ");
             TextFunctions.SlowPrint("God ", "yellow");
             TextFunctions.SlowPrint("responds with a holy relevation. ");
             TextFunctions.SlowPrint("You may momentarely change the fabric of this world, use it wisely.");
@@ -105,22 +106,19 @@
             Settings.wordCounter = 0;
             #endregion
 
+            if (Settings.wasInSettings[0])
+            {
+                Saver.LoadSettings();
+            }
             TextFunctions.SlowPrint($" 1. Skip intro sequence = {Settings.skipIntro}");
             Console.WriteLine();
-            if (Settings.oldSpeed == 0)
-            {
-                Settings.oldSpeed = Settings.speed;
-            }
-            TextFunctions.SlowPrint($" 2. Text Speed = {Settings.oldSpeed}");
+
+            TextFunctions.SlowPrint($" 2. Text Speed = {Settings.speed}");
             Settings.wordCounter = 0;
             Console.WriteLine("\n");
             TextFunctions.SlowPrint($" 3. Return", "green");
             Console.WriteLine("\n");
 
-            if (Settings.wasInSettings[0])
-            {
-                Settings.speed = Settings.oldSpeed;
-            }
             Console.Write(" ");
             //SELECT OPTIONS
             bool hold = true;
@@ -150,10 +148,10 @@
                         while (true)
                         {
                             string value = Console.ReadLine() ?? "";
-                            int x;
-                            if (value == "" || !Int32.TryParse(value, out x))
+                            if (value == "" || !Int32.TryParse(value, out int x))
                             {
-                                TextFunctions.SlowPrint("Invalid input, only numbers above 0 are legal \n");
+                                TextFunctions.SlowPrint(" Invalid input, only numbers above 0 are legal \n");
+                                Console.Write(" ");
                                 continue;
                             }
                             Settings.speed = x;

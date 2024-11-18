@@ -1,15 +1,13 @@
 ﻿namespace ProjectNet
 {
-    public class Settings
+    class Settings
     {
-        internal static int speed = 100;
+        internal static int speed = 3;
         internal static int wordCounter = 0;
         internal static int lineSize = 50;
         internal static string rank = "Baron";
-        internal static bool skipIntro = true;
+        internal static bool skipIntro = false;
         internal static bool[] wasInSettings = { false, false };
-        internal static int oldSpeed = 0;
-        internal static bool firstTime = true;
     }
 
     class Weapon
