@@ -2,6 +2,7 @@
 {
     public class Intro
     {
+        //plays the intro before the menu
         public static void PlayIntro()
         {
             //SETUP
@@ -10,6 +11,7 @@
             Console.Write(" ");
             Console.CursorVisible = false;
 
+            //text block
             #region First Paragraph
             TextFunctions.SlowPrint($"{Settings.rank} ");
             TextFunctions.SlowPrint(Environment.UserName + "...", "green");
@@ -73,10 +75,12 @@
             Settings.wordCounter = 0;
             Console.Write("Press Enter to Continue");
 
-            CancellationTokenSource cts = new CancellationTokenSource();
+            //running a paralell thread to get a "..." effect at awaiting input, very complicated for the actual effect, but console imposes alot of limitations.
+            CancellationTokenSource cts = new();
             CancellationToken token = cts.Token;
             ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
 
+            //awaits enter
             while (true)
             {
                 if (Console.ReadKey().Key == ConsoleKey.Enter)

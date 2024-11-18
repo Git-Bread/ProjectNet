@@ -1,7 +1,9 @@
 ﻿namespace ProjectNet
 {
+    //handler for two diffrent models, its two to make the output more accurate due to small sample size of data
     public class Predicter
     {
+        //handler for action predction machine model
         public static float Determine(string input)
         {
             //Load sample data
@@ -15,6 +17,7 @@
             var action = result.Prediction;
             return action;
         }
+        //handler for combat prediction machine model
         public static float CombatDetermine(string input)
         {
             //Load sample data

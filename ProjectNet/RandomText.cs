@@ -2,6 +2,7 @@
 {
     internal class RandomText
     {
+       //creates arbitary "made up" religious looking quotes, that works as loading screens. Because all good games have loading screens so mine will have one aswell, woe upon the user
         public static void Scripture()
         {
             //lots of text for flavour, probaly a waste of time
@@ -19,20 +20,23 @@
             " Let not the righteous falter, weakness leads to sin, and sin leads to depravity. Stand tall and remember, you are his agents on this world, his holy Justice. Remain pure in spirit, devout in labour and fair in rule. Only then, the Lord will smile upon you. - High Proctor Isobel",
             };
             #endregion
+
+            //randomizer for what text to pick
             Random random = new();
             Console.Clear();
             Console.WriteLine("");
             Settings.wordCounter = 0;
-            Settings.lineSize = Settings.lineSize * 2;
+            Settings.lineSize *= 2; //doubles the linesize for this part
             int randomNumber = random.Next(0, Scriptures.Length);
             TextFunctions.SlowPrint(Scriptures[randomNumber]);
-            Settings.lineSize = Settings.lineSize / 2;
+            Settings.lineSize /= 2; //halves the linesize
 
+            //awaits enter
             Console.WriteLine("\n");
             Settings.wordCounter = 0;
             TextFunctions.SlowPrint(" Press Enter to Continue");
 
-            CancellationTokenSource cts = new CancellationTokenSource();
+            CancellationTokenSource cts = new();
             CancellationToken token = cts.Token;
             ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
 

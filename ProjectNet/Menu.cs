@@ -2,13 +2,16 @@
 {
     public class Menu
     {
+        //the game meny
         public static void MenuDisplay()
         {
+            //if you return for settings, it wont waste your time printing
             if (Settings.wasInSettings[1])
             {
                 Settings.speed = 100;
             }
 
+            //text block
             #region First Paragraph
             Console.Clear();
             Console.WriteLine();
@@ -56,11 +59,13 @@
             TextFunctions.SlowPrint("awaits your choice");
             #endregion
 
+            //loads settings speed
             if (Settings.wasInSettings[1])
             {
                 Saver.LoadSettings();
             }
 
+            //same as in intro
             CancellationTokenSource cts = new();
             CancellationToken token = cts.Token;
             ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
@@ -68,6 +73,7 @@
             //SELECT OPTIONS
             while(true) {
                 ConsoleKeyInfo key = Console.ReadKey();
+                //starts game
                 if (key.Key == ConsoleKey.D1)
                 {
                     cts.Cancel();
@@ -75,12 +81,14 @@
                     GameStart.Introduction();
                     break;
                 }
+                //settings menu
                 else if (key.Key == ConsoleKey.D2)
                 {
                     cts.Cancel();
                     DisplaySettings();
                     break;
                 }
+                //wipe save and exit game because that makes it easier and thematicaly fitting
                 else if (key.Key == ConsoleKey.D3)
                 {
                     cts.Cancel();
@@ -90,14 +98,17 @@
                 }
             }
         }
+        //settings menu
         public static void DisplaySettings()
         {
+            //same as in normal menu, saves picked speed and insta prints if you have already been here
             if (Settings.wasInSettings[0])
             {
                 Saver.SaveSettings();
                 Settings.speed = 100;
             }
 
+            //text block
             #region Settings
             Console.Clear();
             Console.WriteLine();
@@ -116,13 +127,13 @@
             Settings.wordCounter = 0;
             #endregion
 
+            //has to end before options due to it reading the current speed, could be solved with an additional variable holding the original speed.
             if (Settings.wasInSettings[0])
             {
                 Saver.LoadSettings();
             }
             TextFunctions.SlowPrint($" 1. Skip intro sequence = {Settings.skipIntro}");
             Console.WriteLine();
-
             TextFunctions.SlowPrint($" 2. Text Speed = {Settings.speed}");
             Settings.wordCounter = 0;
             Console.WriteLine("\n");
@@ -137,6 +148,7 @@
                 ConsoleKeyInfo key = Console.ReadKey();
                 switch(key.Key)
                 {
+                    //skip intro switch
                     case ConsoleKey.D1:
                         if(Settings.skipIntro)
                         {
@@ -149,15 +161,21 @@
                         Settings.wasInSettings[0] = true;
                         DisplaySettings();
                         break;
+
+                    //new print speed, divides printing time
                     case ConsoleKey.D2:
                         Settings.wordCounter = 0;
                         Console.WriteLine();
                         TextFunctions.SlowPrint(" Enter a new value, this modifier is a divider of the total time \n");
                         Console.WriteLine();
                         Console.Write(" ");
+
+                        //waits untill proper input is written
                         while (true)
                         {
                             string value = Console.ReadLine() ?? "";
+
+                            //makes sure its a number
                             if (value == "" || !Int32.TryParse(value, out int x))
                             {
                                 TextFunctions.SlowPrint(" Invalid input, only numbers above 0 are legal \n");
@@ -170,6 +188,8 @@
                             break;
                         }
                         break;
+
+                    //exit settings
                     case ConsoleKey.D3:
                         hold = false;
                         break;

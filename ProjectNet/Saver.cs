@@ -3,11 +3,14 @@ namespace ProjectNet
 {
     public class Saver
     {
+        //saves the character to character file, has all user and floor data
         public static void SaveGame()
         {
             ExampleCharacterSheet character = new();
             File.WriteAllText("config/character.json", JsonConvert.SerializeObject(character));
         }
+
+        //loads the game and setts the content to the "global" class that is used around the game
          public static void LoadGame()
         {
             ExampleCharacterSheet character = JsonConvert.DeserializeObject<ExampleCharacterSheet>(File.ReadAllText("config/character.json"));
@@ -26,12 +29,16 @@ namespace ProjectNet
                 CharacterSheet.pain = character.pain;
                 CharacterSheet.key = character.key;
             }
-    }
+        }
+
+        //wipes the save by overwriting with empty string, and then loads that to overwrite the values
         public static void RemoveSave()
         {
             File.WriteAllText("config/character.json", String.Empty);
             LoadGame();
         }
+
+        //character sheet copy used for object handling, since static variables cannot be copied and used as refrences.
         public class ExampleCharacterSheet
         {
             public int agility;
@@ -55,11 +62,13 @@ namespace ProjectNet
         }
         }
 
+        //saves the settings
         public static void SaveSettings()
         {
             ExampleSaveSettings settings = new();
             File.WriteAllText("config/settings.json", JsonConvert.SerializeObject(settings));
         }
+        //loads the settings
         public static void LoadSettings()
         {
             ExampleSaveSettings settings = JsonConvert.DeserializeObject<ExampleSaveSettings>(File.ReadAllText("config/settings.json")) ?? new();
@@ -72,6 +81,7 @@ namespace ProjectNet
             Settings.rank = settings.rank;
             Settings.skipIntro = settings.skipIntro;
         }
+        //same logic as charactersheet save handling
         public class ExampleSaveSettings
         {
             public int speed;

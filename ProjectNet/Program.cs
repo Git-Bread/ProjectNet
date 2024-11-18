@@ -2,17 +2,18 @@
 {
     public class TextGame
     {
+        //the mandatory main file, not the prettiest thing
         public static void Main(string[] args)
         {
-            Saver.LoadSettings();
-            Saver.LoadGame();
-            //error handling
+            //loads existing data and checks so that files exist
+
+            //will not create a monster file unless it exist, nope not doing that
             if (!File.Exists("config/monsters.json"))
             {
                 Console.WriteLine("NO MONSTERS FILE, PLEASE CHECK INSTALL");
                 System.Environment.Exit(0);
             };
-            //error handling
+
             if (!File.Exists("config/character.json"))
             {
                 Console.WriteLine("NO CHARACTER FILE, DO YOU WANT TO CREATE ONE? (WILL EXIT UPON COMPLETION)");
@@ -47,29 +48,33 @@
                 bool run = true;
                 while (run)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    if (key.Key == ConsoleKey.D1)
-                    {
-                        File.Create("config/settings.json");
-                        System.Environment.Exit(0);
-                        break;
-                    }
-                    else if (key.Key == ConsoleKey.D2)
-                    {
-                        Console.WriteLine("PLEASE CHECK INSTALLATION");
-                        System.Environment.Exit(0);
-                        break;
-                    }
-                }
+                        ConsoleKeyInfo key = Console.ReadKey();
+                        if (key.Key == ConsoleKey.D1)
+                        {
+                            File.Create("config/settings.json");
+                            System.Environment.Exit(0);
+                            break;
+                        }
+                        else if (key.Key == ConsoleKey.D2)
+                        {
+                            Console.WriteLine("PLEASE CHECK INSTALLATION");
+                            System.Environment.Exit(0);
+                            break;
+                        }
+                 }
             };
 
+            Saver.LoadSettings();
+            Saver.LoadGame();
 
-            //console windows only for resize, linux be damned
+
+            //conole title for immersion
             Console.Title = "The Dark Tower";
 
-
+            //skip if skipintro
             if (!Settings.skipIntro)
             {
+                //intro block with fancy ascii art with row prints for that retro look
                 #region Intro
                 Console.WriteLine();
                 TextFunctions.RowPrint(@"  _________  ___  ___  _______           ________  ________  ________  ___  __       ");
@@ -103,10 +108,12 @@
                 Console.Write(" Press Enter to Continue");
                 #endregion
 
-                CancellationTokenSource cts = new CancellationTokenSource();
+                //adds a second thread for a "..." animation
+                CancellationTokenSource cts = new();
                 CancellationToken token = cts.Token;
                 ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
 
+                //awaits enter
                 while (true)
                 {
                     if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
@@ -115,11 +122,13 @@
                         break;
                     }
                 }
+                //if no current save file, due to default level always being -1 when its initialised but swapped to atleast 0 when the game is runned
                 if(CharacterSheet.floor.level != -1)
                 {
                     Intro.PlayIntro();
                 }
             }
+            //display menu
             Menu.MenuDisplay();
         }
     }

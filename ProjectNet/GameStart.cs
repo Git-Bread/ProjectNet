@@ -2,10 +2,13 @@
 {
     public class GameStart
     {
+        //prints alot more introduction stuff and lore, should have a diffrent name but i cant come up with one
         public static void Introduction()
         {
+            //Runs introduction if its first run
             if(CharacterSheet.floor.level == -1)
             {
+                //text galore
                 #region First Paragraph
                 Console.Clear();
                 Settings.wordCounter = 0;
@@ -61,6 +64,7 @@
                 Console.WriteLine("\n");
                 #endregion
 
+                //awaits input
                 while (true)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
@@ -80,15 +84,19 @@
                         break;
                     }
                 }
+                //picks weapon
                 WeaponPick();
             }
             else
             {
+                //if save exists, ignore all the intro stuff
                 GameMaster.RunGame();
             }
         }
+        //weapon pick scene
         public static void WeaponPick()
         {
+            //text galore
             #region First Paragraph
             Console.Clear();
             Settings.wordCounter = 0;
@@ -156,6 +164,7 @@
             Console.WriteLine("\n");
             #endregion
 
+            //input awaiter,  pick either spear or sword
             while (true)
             {
                 ConsoleKeyInfo key = Console.ReadKey();
@@ -172,6 +181,7 @@
                     break;
                 }
             }
+            //start the game
             GameMaster.RunGame();
         }
     }
