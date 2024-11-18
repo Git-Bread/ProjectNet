@@ -35,7 +35,11 @@ namespace ProjectNet
         {
             Random random = new();
             Floor floor = new();
-            int itemCount = random.Next(2);
+            int itemCount = random.Next(3);
+            if(itemCount == 0)
+            {
+                itemCount = random.Next(2);
+            }
             List<int> objectNumbers = new();
             int level = CharacterSheet.floor.level + 1;
             floor.level = level;

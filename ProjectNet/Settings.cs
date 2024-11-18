@@ -10,7 +10,7 @@
         internal static bool[] wasInSettings = { false, false };
     }
 
-    class Weapon
+    public class Weapon
     {
         public string name = "";
         public int damage = 0;

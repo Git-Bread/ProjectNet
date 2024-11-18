@@ -5,6 +5,7 @@
         public static void Main(string[] args)
         {
             Saver.LoadSettings();
+            Saver.LoadGame();
             //error handling
             if (!File.Exists("config/monsters.json"))
             {
@@ -114,8 +115,10 @@
                         break;
                     }
                 }
-
-                Intro.PlayIntro();
+                if(CharacterSheet.floor.level != -1)
+                {
+                    Intro.PlayIntro();
+                }
             }
             Menu.MenuDisplay();
         }

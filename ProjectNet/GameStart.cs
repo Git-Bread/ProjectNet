@@ -4,81 +4,88 @@
     {
         public static void Introduction()
         {
-            #region First Paragraph
-            Console.Clear();
-            Settings.wordCounter = 0;
-            Console.WriteLine();
-            TextFunctions.SlowPrint(" The rolling of ");
-            TextFunctions.SlowPrint("Thunder ", "yellow");
-            TextFunctions.SlowPrint("stirs you from your troubled sleep. ");
-            TextFunctions.SlowPrint("You hear the pitter-patter of the rain against the wooden roof of the ");
-            TextFunctions.SlowPrint("Carriage, ", "brown");
-            TextFunctions.SlowPrint("and the soft smell of petrichor seems to have all but overtaken the tiny room. ");
-            #endregion
-            #region Second Paragraph
-            Console.WriteLine("\n");
-            Settings.wordCounter = 0;
-            TextFunctions.SlowPrint(" Still feeling drowsy from the days of non-stop travel within this confined space, you take respite in the only ");
-            TextFunctions.SlowPrint("Luxury ", "green");
-            TextFunctions.SlowPrint("you are afforded. A small window opposite of you through which the dim ");
-            TextFunctions.SlowPrint("Moonlight ", "white");
-            TextFunctions.SlowPrint("tricles through, ");
-            TextFunctions.SlowPrint("Illuminating ", "yellow");
-            TextFunctions.SlowPrint("the interior of the ");
-            TextFunctions.SlowPrint("Carriage.", "brown");
-            #endregion
-            #region Third Paragraph
-            Console.WriteLine("\n");
-            Settings.wordCounter = 0;
-            TextFunctions.SlowPrint(" The ");
-            TextFunctions.SlowPrint("Tower ", "purple");
-            TextFunctions.SlowPrint("draws closer with every day, soon you will face its trials. ");
-            TextFunctions.SlowPrint("You ponder on this crossroad of faith, what do you fight for? And upon finding the much needed ");
-            TextFunctions.SlowPrint("Answer, ", "yellow");
-            TextFunctions.SlowPrint("you vow to return ");
-            TextFunctions.SlowPrint("Alive ", "green");
-            TextFunctions.SlowPrint("to...");
-            #endregion
-            #region Options
-            Console.WriteLine("\n");
-            Settings.wordCounter = 0;
-            TextFunctions.SlowPrint(" 1. Reunite with your beloved ");
-            TextFunctions.SlowPrint("Family.", "green");
-            Console.WriteLine("");
-            Settings.wordCounter = 0;
-            TextFunctions.SlowPrint(" 2. Restore your shattered ");
-            TextFunctions.SlowPrint("Reputation.", "yellow");
-            Console.WriteLine("");
-            Settings.wordCounter = 0;
-            TextFunctions.SlowPrint(" 3. ");
-            TextFunctions.SlowPrint("Vanquish ", "red");
-            TextFunctions.SlowPrint("those who condemned you.");
-            Console.WriteLine("\n");
-            Settings.wordCounter = 0;
-            TextFunctions.SlowPrint(" What weights heavy on your heart?");
-            Console.WriteLine("\n");
-            #endregion
-
-            while (true)
+            if(CharacterSheet.floor.level == -1)
             {
-                ConsoleKeyInfo key = Console.ReadKey();
-                if (key.Key == ConsoleKey.D1)
+                #region First Paragraph
+                Console.Clear();
+                Settings.wordCounter = 0;
+                Console.WriteLine();
+                TextFunctions.SlowPrint(" The rolling of ");
+                TextFunctions.SlowPrint("Thunder ", "yellow");
+                TextFunctions.SlowPrint("stirs you from your troubled sleep. ");
+                TextFunctions.SlowPrint("You hear the pitter-patter of the rain against the wooden roof of the ");
+                TextFunctions.SlowPrint("Carriage, ", "brown");
+                TextFunctions.SlowPrint("and the soft smell of petrichor seems to have all but overtaken the tiny room. ");
+                #endregion
+                #region Second Paragraph
+                Console.WriteLine("\n");
+                Settings.wordCounter = 0;
+                TextFunctions.SlowPrint(" Still feeling drowsy from the days of non-stop travel within this confined space, you take respite in the only ");
+                TextFunctions.SlowPrint("Luxury ", "green");
+                TextFunctions.SlowPrint("you are afforded. A small window opposite of you through which the dim ");
+                TextFunctions.SlowPrint("Moonlight ", "white");
+                TextFunctions.SlowPrint("tricles through, ");
+                TextFunctions.SlowPrint("Illuminating ", "yellow");
+                TextFunctions.SlowPrint("the interior of the ");
+                TextFunctions.SlowPrint("Carriage.", "brown");
+                #endregion
+                #region Third Paragraph
+                Console.WriteLine("\n");
+                Settings.wordCounter = 0;
+                TextFunctions.SlowPrint(" The ");
+                TextFunctions.SlowPrint("Tower ", "purple");
+                TextFunctions.SlowPrint("draws closer with every day, soon you will face its trials. ");
+                TextFunctions.SlowPrint("You ponder on this crossroad of faith, what do you fight for? And upon finding the much needed ");
+                TextFunctions.SlowPrint("Answer, ", "yellow");
+                TextFunctions.SlowPrint("you vow to return ");
+                TextFunctions.SlowPrint("Alive ", "green");
+                TextFunctions.SlowPrint("to...");
+                #endregion
+                #region Options
+                Console.WriteLine("\n");
+                Settings.wordCounter = 0;
+                TextFunctions.SlowPrint(" 1. Reunite with your beloved ");
+                TextFunctions.SlowPrint("Family.", "green");
+                Console.WriteLine("");
+                Settings.wordCounter = 0;
+                TextFunctions.SlowPrint(" 2. Restore your shattered ");
+                TextFunctions.SlowPrint("Reputation.", "yellow");
+                Console.WriteLine("");
+                Settings.wordCounter = 0;
+                TextFunctions.SlowPrint(" 3. ");
+                TextFunctions.SlowPrint("Vanquish ", "red");
+                TextFunctions.SlowPrint("those who condemned you.");
+                Console.WriteLine("\n");
+                Settings.wordCounter = 0;
+                TextFunctions.SlowPrint(" What weights heavy on your heart?");
+                Console.WriteLine("\n");
+                #endregion
+
+                while (true)
                 {
-                    CharacterSheet.alignment = "good";
-                    break;
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.D1)
+                    {
+                        CharacterSheet.alignment = "good";
+                        break;
+                    }
+                    else if (key.Key == ConsoleKey.D2)
+                    {
+                        CharacterSheet.alignment = "neutral";
+                        break;
+                    }
+                    else if (key.Key == ConsoleKey.D3)
+                    {
+                        CharacterSheet.alignment = "evil";
+                        break;
+                    }
                 }
-                else if (key.Key == ConsoleKey.D2)
-                {
-                    CharacterSheet.alignment = "neutral";
-                    break;
-                }
-                else if (key.Key == ConsoleKey.D3)
-                {
-                    CharacterSheet.alignment = "evil";
-                    break;
-                }
+                WeaponPick();
             }
-            WeaponPick();
+            else
+            {
+                GameMaster.RunGame();
+            }
         }
         public static void WeaponPick()
         {
@@ -106,7 +113,7 @@
             TextFunctions.SlowPrint("is featureless, all its six sides are impossibly smooth and no windows or even holes can be seen across its surface. ");
             TextFunctions.SlowPrint("The only detail of note is a pair of double doors made out of ");
             TextFunctions.SlowPrint("Wood ", "brown");
-            TextFunctions.SlowPrint("that seems hopelessly out of place on the  ");
+            TextFunctions.SlowPrint("that seems hopelessly out of place on the ");
             TextFunctions.SlowPrint("Obsidian ", "purple");
             TextFunctions.SlowPrint("Behemoth.");
             #endregion

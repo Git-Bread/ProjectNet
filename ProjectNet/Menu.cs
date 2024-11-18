@@ -4,7 +4,7 @@
     {
         public static void MenuDisplay()
         {
-            if(Settings.wasInSettings[1])
+            if (Settings.wasInSettings[1])
             {
                 Settings.speed = 100;
             }
@@ -15,9 +15,19 @@
             Console.CursorVisible = false;
             TextFunctions.SlowPrint(" You stand before ");
             TextFunctions.SlowPrint("God... ", "yellow");
-            TextFunctions.SlowPrint("and he offers you a short respite, ");
-            TextFunctions.SlowPrint("a moment to think about the ");
-            TextFunctions.SlowPrint("Inevitable. ", "red");
+            if (CharacterSheet.floor.level != -1)
+            {
+                TextFunctions.SlowPrint("you are back here ");
+                TextFunctions.SlowPrint("again, ", "yellow");
+                TextFunctions.SlowPrint("stuck in thought, pondering about the ");
+                TextFunctions.SlowPrint("Inevitable. ", "red");
+            }
+            else
+            {
+                TextFunctions.SlowPrint("and he offers you a short respite, ");
+                TextFunctions.SlowPrint("a moment to think about the ");
+                TextFunctions.SlowPrint("Inevitable. ", "red");
+            }
             TextFunctions.SlowPrint("At this crossroad of faith you may ");
             TextFunctions.SlowPrint("ATONE (Start/Continue), ", "green");
             TextFunctions.SlowPrint("WORSHIP (Change Settings)...", "yellow");
@@ -75,7 +85,7 @@
                 {
                     cts.Cancel();
                     Saver.RemoveSave();
-                    GameStart.Introduction();
+                    System.Environment.Exit(0);
                     break;
                 }
             }

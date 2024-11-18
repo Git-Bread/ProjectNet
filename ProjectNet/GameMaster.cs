@@ -5,44 +5,50 @@
         public static void RunGame()
         {
             Console.Clear();
-            CharacterSheet.floor = GameGen.GenerateFloor();
-            #region tutorial
-            if (CharacterSheet.floor.level == 0)
+            if(CharacterSheet.floor.level == -1)
             {
-                Console.WriteLine();
-                TextFunctions.RowPrint(" Welcome to the actual game, you will interact with the diffrent levels of the tower ");
-                TextFunctions.RowPrint(" and perform actions based on your input. The actions you can do are as follows, with example imputs:");
-                Console.WriteLine();
-                TextFunctions.RowPrint(" {ascend, go up, climb the stairs} Ascend the stairs to the next floor, need to beat the enemy first however.");
-                TextFunctions.RowPrint(" {proceed, march, press forward} Go forward and engage the opponent");
-                TextFunctions.RowPrint(" {survey, look around, observe} Look around, see if something catches your eyes");
-                TextFunctions.RowPrint(" {rest, sit down, take a break} Rest, helps if theres something to rest on.");
-                TextFunctions.RowPrint(" {open, unlock, remove the lid} Opens a chest or container");
-                Console.WriteLine("\n");
-                Settings.wordCounter = 0;
-                TextFunctions.RowPrint(" When combat starts you may either perform a Slashing/Swiping or a Piercing/Thrusting attack.");
-                TextFunctions.RowPrint(" The effectivness of your attack depends on luck, your stats aswell as the weapon/move you use,");
-                TextFunctions.RowPrint(" as an example, slashing attacks will do much less against a golem than piercing");
-                Console.WriteLine("\n");
-                TextFunctions.SlowPrint(" Press Enter to Continue");
-                Settings.wordCounter = 0;
+                CharacterSheet.floor = GameGen.GenerateFloor();
 
-                CancellationTokenSource cts = new CancellationTokenSource();
-                CancellationToken token = cts.Token;
-                ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
-
-                while (true)
+                #region tutorial
+                if (CharacterSheet.floor.level == 0)
                 {
-                    if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
+                    Console.WriteLine();
+                    TextFunctions.RowPrint(" Welcome to the actual game, you will interact with the diffrent levels of the tower ");
+                    TextFunctions.RowPrint(" and perform actions based on your input. The actions you can do are as follows, with example imputs:");
+                    Console.WriteLine();
+                    TextFunctions.RowPrint(" {ascend, go up, climb the stairs} Ascend the stairs to the next floor, need to beat the enemy first however.");
+                    TextFunctions.RowPrint(" {proceed, march, press forward} Go forward and engage the opponent");
+                    TextFunctions.RowPrint(" {survey, look around, observe} Look around, see if something catches your eyes");
+                    TextFunctions.RowPrint(" {rest, sit down, take a break} Rest, helps if theres something to rest on.");
+                    TextFunctions.RowPrint(" {open, unlock, remove the lid} Opens a chest or container");
+                    Console.WriteLine("\n");
+                    Settings.wordCounter = 0;
+                    TextFunctions.RowPrint(" When combat starts you may either perform a Slashing/Swiping or a Piercing/Thrusting attack.");
+                    TextFunctions.RowPrint(" The effectivness of your attack depends on luck, your stats aswell as the weapon/move you use,");
+                    TextFunctions.RowPrint(" as an example, slashing attacks will do much less against a golem than piercing");
+                    Console.WriteLine("\n");
+                    TextFunctions.SlowPrint(" Press Enter to Continue");
+                    Settings.wordCounter = 0;
+
+                    CancellationTokenSource cts = new();
+                    CancellationToken token = cts.Token;
+                    ThreadPool.QueueUserWorkItem(state => TextFunctions.ContinueDotter(token));
+
+                    while (true)
                     {
-                        cts.Cancel();
-                        break;
+                        if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Enter)
+                        {
+                            cts.Cancel();
+                            break;
+                        }
                     }
                 }
-            }
-            #endregion
+                #endregion
 
-            Console.Clear();
+                Console.Clear();
+                Saver.SaveGame();
+            }
+
             while(true)
             {
                 Floor floor = CharacterSheet.floor;
@@ -343,15 +349,18 @@
                 if (floor.level == 3)
                 {
                     Console.Clear();
+                    Console.WriteLine();
                     TextFunctions.SlowPrint(" Congratulations! You won the game, hurray!");
                     Settings.rank = "Duke";
                     Saver.SaveSettings();
+                    Saver.RemoveSave();
                     Thread.Sleep(5000);
                     System.Environment.Exit(0);
                 }
                 else
                 {
                     CharacterSheet.floor = GameGen.GenerateFloor();
+                    Saver.SaveGame();
                 }
             }
         }
@@ -471,6 +480,7 @@
                         Console.WriteLine();
                         Thread.Sleep(400);
                         TextFunctions.SlowPrint(" You have failed... Thus the tower has become your final resting place, farewell.", "red");
+                        Saver.RemoveSave();
                         Thread.Sleep(4000);
                         System.Environment.Exit(0);
                     }
