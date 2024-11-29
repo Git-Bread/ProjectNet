@@ -123,7 +123,7 @@
                     }
                 }
                 //if no current save file, due to default level always being -1 when its initialised but swapped to atleast 0 when the game is runned
-                if(CharacterSheet.floor.level != -1)
+                if(CharacterSheet.floor.level == -1)
                 {
                     Intro.PlayIntro();
                 }
