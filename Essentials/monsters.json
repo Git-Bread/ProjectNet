@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Goblin",
+    "description": "A small, green-skinned creature that loves to ambush travelers.",
+    "hp": 4,
+    "damage": 1,
+    "defense_type": 0,
+    "difficulty_tier": 0
+  },
+  {
+    "name": "Troll",
+    "description": "A giant, brutish creature that regenerates health slowly.",
+    "hp": 16,
+    "damage": 4,
+    "defense_type": 1,
+    "difficulty_tier": 2
+  },
+  {
+    "name": "Skeleton Warrior",
+    "description": "A reanimated warrior clad in rusted armor, wielding a jagged sword.",
+    "hp": 10,
+    "damage": 2,
+    "defense_type": 1,
+    "difficulty_tier": 1
+  },
+  {
+    "name": "Fire Imp",
+    "description": "A small, mischievous demon that controls fire and causes burns with its touch.",
+    "hp": 3,
+    "damage": 3,
+    "defense_type": 0,
+    "difficulty_tier": 0
+  },
+  {
+    "name": "Mimic",
+    "description": "A creature that disguises itself as a treasure chest to trick adventurers.",
+    "hp": 8,
+    "damage": 2,
+    "defense_type": 0,
+    "difficulty_tier": 1
+  },
+  {
+    "name": "Stone Golem",
+    "description": "A hulking creature made of stone, nearly impervious to physical attacks.",
+    "hp": 24,
+    "damage": 6,
+    "defense_type": 1,
+    "difficulty_tier": 3
+  },
+  {
+    "name": "Vampire Bat",
+    "description": "A large bat with vampiric tendencies, sucking the life force from its prey.",
+    "hp": 4,
+    "damage": 1,
+    "defense_type": 0,
+    "difficulty_tier": 0
+  },
+  {
+    "name": "Wraith",
+    "description": "A ghostly apparition that drains the life force from its victims.",
+    "hp": 9,
+    "damage": 5,
+    "defense_type": 1,
+    "difficulty_tier": 2
+  },
+  {
+    "name": "Ogre",
+    "description": "A massive, slow-moving creature that uses brute force to crush its enemies.",
+    "hp": 20,
+    "damage": 7,
+    "defense_type": 1,
+    "difficulty_tier": 2
+  },
+  {
+    "name": "Chimera",
+    "description": "A fearsome beast with the body of a lion, the head of a goat, and a snake for a tail. It can breathe fire and poison its prey.",
+    "hp": 22,
+    "damage": 8,
+    "defense_type": 1,
+    "difficulty_tier": 3
+  }
+]

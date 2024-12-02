@@ -1,0 +1,1 @@
+{"agility":1,"life":5,"strength":1,"alignment":"good","weapon":{"name":"Trusty Spear","damage":3,"type":0},"floor":{"level":0,"objects":["Table","Chair"],"opponent":{"Name":"Vampire Bat","Description":"A large bat with vampiric tendencies, sucking the life force from its prey.","HP":4,"Damage":1,"DefenseType":0,"DifficultyTier":0}},"pain":0,"key":false}

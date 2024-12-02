@@ -1,0 +1,400 @@
+Stabbing	2
+Impaling	2
+Jabbing	2
+Lunging	2
+Poking	2
+Skewering	2
+Gouging	2
+Spearing	2
+Probing	2
+Piercing through	2
+Thrusting forward	2
+Pushing through	2
+Piercing deeply	2
+Thrusting with force	2
+Driving forward	2
+Spearing forward	2
+Sticking into	2
+Ramming in	2
+Thrusting violently	2
+Driving the point	2
+Poking through	2
+Thrusting sharply	2
+Jabbing forward	2
+Impaling deeply	2
+Skewering through	2
+Stabbing forward	2
+Thrusting downward	2
+Thrusting upwards	2
+Piercing with precision	2
+Driving the blade	2
+Lancing	2
+Poking sharply	2
+Sticking the spear	2
+Skewering sharply	2
+Thrusting rapidly	2
+Probing forward	2
+Ramming forward	2
+Thrusting intensely	2
+Piercing with intensity	2
+Driving deep	2
+Spearing forward with force	2
+Impaling sharply	2
+Lancing forward	2
+Striking with a jab	2
+Thrusting with speed	2
+Thrusting through armor	2
+Poking sharply through	2
+Piercing with power	2
+Stabbing sharply	2
+Thrusting deeply	2
+Jabbing sharply	2
+Ramming sharply	2
+Driving with precision	2
+Probing the target	2
+Skewering violently	2
+Stabbing with force	2
+Thrusting with precision	2
+Poking with force	2
+Piercing quickly	2
+Thrusting hard	2
+Jabbing with intensity	2
+Lancing sharply	2
+Ramming the target	2
+Probing the defenses	2
+Thrusting through defenses	2
+Skewering swiftly	2
+Piercing with quickness	2
+Striking with a lunge	2
+Poking the enemy	2
+Jabbing with speed	2
+Spearing with force	2
+Driving through with force	2
+Impaling with speed	2
+Piercing with sharpness	2
+Thrusting towards the target	2
+Lancing toward the enemy	2
+Jabbing forcefully	2
+Sticking the blade	2
+Skewering at the target	2
+Ramming the point	2
+Thrusting into position	2
+Poking with precision	2
+Piercing forward	2
+Stabbing through	2
+Probing intensely	2
+Driving in sharply	2
+Skewering with intensity	2
+Lancing forcefully	2
+Poking in quickly	2
+Thrusting toward the heart	2
+Striking with speed	2
+Piercing deep into the target	2
+Thrusting with speed and power	2
+Jabbing deeply	2
+Ramming fiercely	2
+Driving the blade deep	2
+Skewering deeply	2
+Lancing swiftly	2
+Piercing through the heart	2
+Poking through the armor	2
+Stabbing with purpose	2
+Thrusting into the enemy	2
+Jabbing with deadly intent	2
+Spearing directly	2
+Thrusting rapidly forward	2
+Probing the surface	2
+Driving the sword deep	2
+Piercing sharply and quickly	2
+Stabbing through with force	2
+Lancing toward the target	2
+Ramming the point sharply	2
+Thrusting with a deadly jab	2
+Poking with quick precision	2
+Skewering with speed	2
+Piercing with a quick strike	2
+Lancing through quickly	2
+Thrusting toward the vital spot	2
+Jabbing forward quickly	2
+Sticking with precision	2
+Poking the target sharply	2
+Piercing swiftly through	2
+Ramming with force	2
+Thrusting deep into the target	2
+Skewering with intent	2
+Lancing with deadly precision	2
+Stabbing with quick intent	2
+Thrusting through with power	2
+Probing with deadly accuracy	2
+Spearing into the target	2
+Poking quickly into the target	2
+Jabbing forcefully with precision	2
+Thrusting through with speed	2
+Stabbing with relentless force	2
+Ramming the point home	2
+Piercing swiftly and sharply	2
+Thrusting with brutal force	2
+Lancing directly at the enemy	2
+Spearing with deadly intent	2
+Poking at the target	2
+Piercing with quick strikes	2
+Jabbing at the enemy	2
+Stabbing with a fierce blow	2
+Ramming through the defenses	2
+Thrusting without hesitation	2
+Skewering rapidly	2
+Driving with a powerful thrust	2
+Thrusting with controlled power	2
+Probing with a sharpened blade	2
+Jabbing quickly into the target	2
+Ramming with unyielding force	2
+Lancing with a deadly strike	2
+Thrusting through the shield	2
+Stabbing deeply and swiftly	2
+Poking into the target sharply	2
+Driving the point home	2
+Thrusting into the heart	2
+Lancing forcefully into the target	2
+Stabbing with ruthless precision	2
+Ramming with sharp intent	2
+Piercing with immediate impact	2
+Poking the target firmly	2
+Skewering with deadly speed	2
+Probing deep into the wound	2
+Thrusting fiercely into the enemy	2
+Jabbing powerfully	2
+Ramming fiercely into the target	2
+Lancing deeply	2
+Thrusting hard and deep	2
+Piercing directly with intent	2
+Poking with swift precision	2
+Skewering with powerful force	2
+Jabbing through the air	2
+Thrusting toward the heart of the target	2
+Lancing directly into the heart	2
+Poking forcefully into the target	2
+Piercing through with deadly intent	2
+Ramming the point in	2
+Spearing swiftly	2
+Thrusting through the enemy's defense	2
+Stabbing repeatedly	2
+Lancing deep into the target	2
+Jabbing repeatedly	2
+Ramming the weapon in	2
+Piercing quickly and efficiently	2
+Thrusting into the enemy with focus	2
+Poking with great intensity	2
+Spearing fiercely	2
+Jabbing with lethal force	2
+Ramming with deliberate force	2
+Stabbing with absolute precision	2
+Lancing rapidly and precisely	2
+Thrusting deeply and violently	2
+Poking deeply into the target	2
+Piercing rapidly and forcefully	2
+Ramming through the armor	2
+Thrusting relentlessly	2
+Skewering with unyielding force	2
+Poking through the defense	2
+Stabbing with overwhelming force	2
+Lancing with brutal impact	2
+Cleaving 1
+Slicing 1
+Striking 1
+Raking 1
+Whipping 1
+Lashing 1
+Shredding 1
+Severing 1
+Carving 1
+Gashing 1
+Chopping 1
+Scything 1
+Ripping 1
+Hacking 1
+Lacerating 1
+Slicing through 1
+Sweeping 1
+Slashing downward 1
+Swinging 1
+Cutting 1
+Felling 1
+Ripping apart 1
+Slicing sideways 1
+Slicing upward 1
+Swinging wide 1
+Scoring 1
+Raking across 1
+Swinging downward 1
+Chopping down 1
+Lashing outward 1
+Gashing downward 1
+Shredding sideways 1
+Swinging with force 1
+Slicing diagonally 1
+Slicing inward 1
+Cutting across 1
+Slicing in an arc 1
+Striking outward 1
+Swinging in a circle 1
+Felling sideways 1
+Slicing diagonally upward 1
+Swinging with precision 1
+Carving downward 1
+Gashing outward 1
+Striking downward 1
+Lacerating sideways 1
+Ripping through 1
+Cutting in a wide arc 1
+Severing sideways 1
+Scything downward 1
+Lashing downward 1
+Slicing cleanly 1
+Gashing sharply 1
+Shredding upward 1
+Slicing at full extension 1
+Lashing upward 1
+Swinging in a sharp arc 1
+Ripping downward 1
+Chopping sideways 1
+Swinging inward 1
+Felling downward 1
+Raking downward 1
+Swinging in a diagonal arc 1
+Severing cleanly 1
+Shredding downward 1
+Swinging outward 1
+Gashing in a wide arc 1
+Lashing inward 1
+Slicing inward 1
+Striking across 1
+Slicing with a deep cut 1
+Raking outward 1
+Swinging in an aggressive arc 1
+Felling upward 1
+Striking sideways 1
+Carving in a downward motion 1
+Slicing from above 1
+Raking upward 1
+Slicing with intensity 1
+Swinging sharply downward 1
+Ripping across 1
+Lashing outward forcefully 1
+Slicing violently 1
+Gashing violently 1
+Shredding inward 1
+Swinging with aggression 1
+Slicing from left to right 1
+Lashing with power 1
+Raking inward 1
+Striking with a sharp arc 1
+Slicing downward with force 1
+Raking with precision 1
+Felling sideways with speed 1
+Swinging with momentum 1
+Gashing across in one motion 1
+Striking with brutal force 1
+Slicing horizontally 1
+Lashing downward violently 1
+Sweeping downward with power 1
+Cutting across at an angle 1
+Slicing diagonally downward 1
+Swinging downward with strength 1
+Chopping upward 1
+Carving with a strong swipe 1
+Felling with precision 1
+Scoring downward with force 1
+Striking fiercely with a blade 1
+Slicing downward in a curve 1
+Ripping inward with force 1
+Lacerating with a swift motion 1
+Gashing sideways with strength 1
+Raking downward forcefully 1
+Carving in a sweeping motion 1
+Swinging with wide force 1
+Slicing fiercely with speed 1
+Striking outward with precision 1
+Swinging in a fast arc 1
+Lashing with rapid force 1
+Raking sharply with a blade 1
+Cutting diagonally inward 1
+Felling with a clean swipe 1
+Slicing with speed 1
+Slicing sideways with force 1
+Raking in an arc 1
+Swinging in a high arc 1
+Chopping inward 1
+Slicing at a target 1
+Slicing downward in a wide arc 1
+Lashing across with great speed 1
+Swinging sharply outward 1
+Felling with a strong cut 1
+Gashing downward with strength 1
+Cutting swiftly across 1
+Swinging outward with force 1
+Slicing sharply in an arc 1
+Striking downward with sharp precision 1
+Raking inward with force 1
+Cutting across swiftly 1
+Lashing across with great power 1
+Swinging inward with a slash 1
+Severing with force 1
+Gashing in an upward motion 1
+Swinging downward with a swift strike 1
+Slicing across rapidly 1
+Lashing in a rapid motion 1
+Striking with precise force 1
+Carving upward with a slash 1
+Felling inward with a slash 1
+Raking outward in a quick motion 1
+Swinging downward sharply 1
+Shredding rapidly with a blade 1
+Gashing in a deep slash 1
+Swinging forcefully downward 1
+Slicing upward with precision 1
+Slicing inward with intensity 1
+Striking upward with force 1
+Lashing with speed 1
+Swinging inward with a deep cut 1
+Carving sideways with a sharp motion 1
+Raking sharply across 1
+Striking downward in a rapid cut 1
+Slicing with rapid precision 1
+Slicing downward with speed 1
+Swinging with sharp motion 1
+Lashing downward in a violent arc 1
+Gashing upward swiftly 1
+Raking downward quickly 1
+Swinging outward with strength 1
+Felling inward with sharp motion 1
+Lashing outward sharply 1
+Cutting in an aggressive arc 1
+Swinging swiftly with power 1
+Raking downward with intensity 1
+Slicing with exact precision 1
+Severing swiftly with a slash 1
+Striking in a high arc 1
+Lashing rapidly with force 1
+Slicing inward with strength 1
+Carving downward quickly 1
+Gashing inward swiftly 1
+Swinging in a violent arc 1
+Lashing in a wide arc 1
+Raking across forcefully 1
+Slicing downward with power 1
+Shredding in a fast slash 1
+Raking inward swiftly 1
+Slicing sharply in one motion 1
+Cutting across swiftly with power 1
+Felling downward in one clean sweep 1
+Swinging inward with a deep strike 1
+Striking with a sharp cut 1
+Raking rapidly across with a blade 1
+Lashing downward rapidly 1
+Cutting upward in a swift arc 1
+Slicing outward quickly 1
+Felling swiftly in one motion 1
+Shredding with a wide arc 1
+Gashing downward rapidly 1
+Slicing forcefully across 1
+Swinging downward with intensity 1
